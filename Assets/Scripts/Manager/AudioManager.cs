@@ -1,14 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class AudioManager : Singleton<AudioManager>
 {
 
+    public Sound[] Sounds;
+    public Sound[] FixedSoundsList; 
     protected override void Awake(){
         base.Awake();
-       GameManager.OnGameStateChange += audioManagerOnGameStateChange;
-       GameManager.OnPlayerStateChage += audioManagerOnPlayerStateChange;
+        GameManager.OnGameStateChange += audioManagerOnGameStateChange;
+        GameManager.OnPlayerStateChage += audioManagerOnPlayerStateChange;
+        foreach(Sound sound in Sounds)
+        {
+            sound.Source = gameObject.AddComponent<AudioSource>();
+            sound.Source.clip = sound.clip;
+            sound.Source.volume = sound.volumn;
+            sound.Source.pitch = sound.pitch;
+        }
     }
 
     protected override void OnDestroy()
@@ -24,6 +34,15 @@ public class AudioManager : Singleton<AudioManager>
 
     private void audioManagerOnPlayerStateChange(PlayerState playerState){
         throw new System.NotImplementedException();
+    }
+
+    public void PlaySound(string soundName){
+        Sound sound = Array.Find(Sounds , sound => sound.Name == soundName);
+        if(sound == null){
+            Debug.LogWarning("Audio name:"+ sound.Name +"not found.");
+            return;
+        }
+        sound.Source.Play();
     }
 
     
