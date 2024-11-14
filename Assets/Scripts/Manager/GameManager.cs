@@ -5,22 +5,37 @@ using System;
 
 public class GameManager : Singleton<GameManager>
 {
+    private GameState state;
+    public GameState GameStat => state;
+
     public static event Action<GameState> OnGameStateChange;
     public static event Action<PlayerState> OnPlayerStateChage;
     
+    public void UpdateGameState(GameState newState){
+        state = newState;
+        switch(newState) {
+            case GameState.GameStart:
+                HandleGameStart();
+            break;
+            case GameState.GameOver:
+                HandleGameOver();
+            break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(newState), newState , null);
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+        }
+        OnGameStateChange?.Invoke(newState);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void HandleGameOver()
     {
-        
+        throw new NotImplementedException();
     }
 
+    private void HandleGameStart()
+    {
+        throw new NotImplementedException();
+    }
 }
 
 public enum GameState{
