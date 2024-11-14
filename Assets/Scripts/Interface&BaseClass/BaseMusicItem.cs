@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MusicItem : MonoBehaviour,IMusicItem
+public class BaseMusicItem : MonoBehaviour,IMusicItem
 {
     public virtual void BeSelected()
     {

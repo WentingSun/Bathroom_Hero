@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MopGuitar : MusicItem
+public class MopGuitar : BaseMusicItem
 {
     [SerializeField]public TestVRinput input;
     public int testNum;

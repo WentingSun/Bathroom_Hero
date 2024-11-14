@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.XR;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -48,13 +49,13 @@ public class GameManager : Singleton<GameManager>
             HandleSelectMop();
             break;
             case PlayerState.playerSelectTubelight:
-
+            HandleSelectTubelight();
             break;
             case PlayerState.playerWatchMirror:
-            
+            HandlePlayerWatchMirror();
             break;
             case PlayerState.playerDontWatchMirror:
-            
+            HandlePlayerDontWathMirror();
             break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(newState), newState, null);    
