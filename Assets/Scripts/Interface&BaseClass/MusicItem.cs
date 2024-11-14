@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class MusicItem : MonoBehaviour,IMusicItem
 {
-    public void BeSelected()
+    public virtual void BeSelected()
     {
         throw new System.NotImplementedException();
     }
 
-    public void PlayMusic()
+    public virtual void PlayMusic()
     {
         throw new System.NotImplementedException();
     }
