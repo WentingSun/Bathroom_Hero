@@ -10,6 +10,11 @@ public class BaseMusicItem : MonoBehaviour,IMusicItem
         throw new System.NotImplementedException();
     }
 
+    public virtual void UnSelected()
+    {
+        throw new System.NotImplementedException();
+    }
+
     public virtual void PlayMusic()
     {
         throw new System.NotImplementedException();
