@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TestMusicItem : BaseMusicItem
 {
-
+    [SerializeField]
     private bool beSelected;
 
     public override void BeSelected()
@@ -14,6 +14,7 @@ public class TestMusicItem : BaseMusicItem
 
     public override void UnSelected()
     {
+        beSelected =false;
         Debug.Log("Method:UnSelected is used");
         AudioManager.Instance.PlaySound("TestSound");
     }
