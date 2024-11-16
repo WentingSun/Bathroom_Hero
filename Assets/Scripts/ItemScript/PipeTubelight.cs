@@ -10,7 +10,7 @@ public class PipeTubelight : BaseMusicItem
 {
     private bool isSeleced = false;
     
-    //跟随手柄
+    //Pipe Position
     private Vector3 initialPipePosition;
     private Quaternion initialPipeRotation;
     private GameObject pipe;
@@ -43,7 +43,7 @@ public class PipeTubelight : BaseMusicItem
     // TODO: Change the Controller Key code
     public void followHandController()
     {
-        // 按下 Z 键时，左手控制/放下
+        // Z Follow Left Controller
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
@@ -53,7 +53,7 @@ public class PipeTubelight : BaseMusicItem
                 isFollowLeft();
             }
         }
-        // 按下 X 键时，右手控制/放下
+        // X Follow Right Controller
         if (Input.GetKeyDown(KeyCode.X))
         {
             if (pipe != null && input != null)
@@ -76,7 +76,7 @@ public class PipeTubelight : BaseMusicItem
 
         }
 
-        // 回到原位
+        // Return to original position
         if (!isSeleced)
         {
             pipe.transform.position = initialPipePosition;
@@ -100,5 +100,8 @@ public class PipeTubelight : BaseMusicItem
     {
         isFollowLeftHand = true;
         isFollowRightHand = false;
+    }
+    public bool getIsSelected(){
+        return isSeleced;
     }
 }
