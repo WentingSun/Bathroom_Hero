@@ -4,33 +4,47 @@ using UnityEngine;
 
 public class MirrorLogic : MonoBehaviour
 {
-    [SerializeField]private Camera CameraA; 
-    [SerializeField]private Camera CameraB; 
+    [SerializeField] private Camera CameraA;
+    [SerializeField] private Camera CameraB;
+    [SerializeField] private Material MirrorMaterial; // 使用 ScreenCutoutShader 的材质
+    [SerializeField] private Texture TextureMop;      // 拖把模式的纹理
+    [SerializeField] private Texture TextureLightsaber; // 光剑模式的纹理
 
-    void Awake(){
-        GameManager.OnPlayerStateChage+=ChangeScenesOnPlayerStateChange;
+    void Awake()
+    {
+        GameManager.OnPlayerStateChage += ChangeScenesOnPlayerStateChange;
     }
 
-    void OnDestroy(){
-        GameManager.OnPlayerStateChage-=ChangeScenesOnPlayerStateChange;
+    void OnDestroy()
+    {
+        GameManager.OnPlayerStateChage -= ChangeScenesOnPlayerStateChange;
     }
 
-    public void ChangeScenesOnPlayerStateChange(PlayerState state){
-        //当玩家状态变化(也就是他选择了拖把或者光剑), 镜子需要发生变化
-        //更换镜子的渲染贴图所绑定的摄像机
-        //TODO
+    public void ChangeScenesOnPlayerStateChange(PlayerState state)
+    {
+        // 根据玩家状态，切换镜子的渲染逻辑
+        switch (state)
+        {
+            case PlayerState.playerSelectMop:
+                // 设置材质的主纹理为拖把模式纹理
+                MirrorMaterial.SetTexture("_MainTex", TextureMop);
+                break;
+
+            case PlayerState.playerSelectTubelight:
+                // 设置材质的主纹理为光剑模式纹理
+                MirrorMaterial.SetTexture("_MainTex", TextureLightsaber);
+                break;
+
+            default:
+                Debug.LogWarning("Unhandled PlayerState: " + state);
+                break;
+        }
     }
 
-
-    // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // 确保镜子一开始有默认纹理
+        MirrorMaterial.SetTexture("_MainTex", TextureMop);
     }
 }
+
