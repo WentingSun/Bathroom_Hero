@@ -5,7 +5,12 @@ using UnityEngine;
 public class MopGuitar : BaseMusicItem
 {
     
-    public int testNum;
+    
+    private void OnTriggerEnter(Collider other){
+        
+        AudioManager.Instance.PlaySound("TestSound");
+    }
+
     // Start is called before the first frame update
     void Start()
     {
