@@ -515,6 +515,7 @@ MonoBehaviour:
   Mop: {fileID: 553469893}
   FixPoint: {fileID: 1314580725}
   isSelected: 0
+  rotationOffset: {x: 0, y: 90, z: 0}
 --- !u!1 &444014106
 GameObject:
   m_ObjectHideFlags: 0
