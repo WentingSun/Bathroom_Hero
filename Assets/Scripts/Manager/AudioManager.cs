@@ -39,7 +39,7 @@ public class AudioManager : Singleton<AudioManager>
     public void PlaySound(string soundName){
         Sound sound = Array.Find(Sounds , sound => sound.Name == soundName);
         if(sound == null){
-            Debug.LogWarning("Audio name:"+ sound.Name +"not found.");
+            Debug.LogWarning("Audio name:"+ soundName +"not found.");
             return;
         }
         sound.Source.Play();

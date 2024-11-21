@@ -41,7 +41,7 @@ public class MopGuitar : BaseMusicItem
     {
         CheckAttribute();
         soundIndex=0;
-        Debug.Log(ToString(GuitarMode.A,7));
+        // Debug.Log(ToString(GuitarMode.A,7));//ModeA07
         
     }
 

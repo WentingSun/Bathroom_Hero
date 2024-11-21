@@ -519,6 +519,7 @@ MonoBehaviour:
   ModeARange: 1.5
   ModeBRange: 2.4
   ModeCRange: 10000
+  soundIndex: 0
   rotationOffset: {x: 0, y: 90, z: 0}
 --- !u!1 &444014106
 GameObject:
@@ -987,7 +988,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sounds:
-  - Name: TestSound
+  - Name: ModeA00
     clip: {fileID: 8300000, guid: 068edfc864b30774f8129ebd8fee1452, type: 3}
     volumn: 0.689
     pitch: 1
