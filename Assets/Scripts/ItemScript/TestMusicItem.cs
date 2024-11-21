@@ -14,7 +14,7 @@ public class TestMusicItem : BaseMusicItem
 
     public override void UnSelected()
     {
-        beSelected =false;
+        beSelected = false;
         Debug.Log("Method:UnSelected is used");
         AudioManager.Instance.PlaySound("TestSound");
     }
@@ -28,7 +28,8 @@ public class TestMusicItem : BaseMusicItem
     // Update is called once per frame
     void Update()
     {
-        if(beSelected == true){
+        if (beSelected == true)
+        {
             this.gameObject.transform.position = input.GetRightHandPosition().position;
         }
     }
