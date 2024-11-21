@@ -11,12 +11,13 @@ public class MopGuitar : BaseMusicItem
     [SerializeField] private float ModeARange;
     [SerializeField] private float ModeBRange;
     [SerializeField] private float ModeCRange;
+    [SerializeField] private int soundIndex;
     public Vector3 rotationOffset;
     float distanseOfLeftHand=>getDistanceOfHand();
     
     
     private void OnTriggerEnter(Collider other){
-        AudioManager.Instance.PlaySound("TestSound");
+        AudioManager.Instance.PlaySound(ToString(guitarMode,soundIndex));
     }
 
     public override void BeSelected()
@@ -39,18 +40,39 @@ public class MopGuitar : BaseMusicItem
     void Start()
     {
         CheckAttribute();
+        soundIndex=0;
+        Debug.Log(ToString(GuitarMode.A,7));
+        
     }
 
-private void CheckAttribute()
-{
-    if (!(ModeCRange > ModeARange && ModeBRange > ModeARange && ModeCRange > ModeBRange))
+    private void CheckAttribute()
     {
-        Debug.Log("Range Mode Attribute has problem");
+        if (!(ModeCRange > ModeARange && ModeBRange > ModeARange && ModeCRange > ModeBRange))
+        {
+            Debug.Log("Range Mode Attribute has problem");
+        }
+
+        
     }
 
-    
-}
-
+    private static string ToString(GuitarMode mode,int index){
+        string result= "";
+        switch(mode){
+            case GuitarMode.A:
+            result += "ModeA";
+            break;
+            case GuitarMode.B:
+            result += "ModeB";
+            break;
+            case GuitarMode.C:
+            result += "ModeC";
+            break;
+        }
+        result += index.ToString("D2");
+        return result;
+        //example for mode A with 7 index
+        //ModeA07
+    }
 
     // Update is called once per frame
     void Update()
