@@ -6,10 +6,12 @@ public class TestMusicItem : BaseMusicItem
 {
     [SerializeField]
     private bool beSelected;
+    [SerializeField]Vector3 Offset;
 
     public override void BeSelected()
     {
         beSelected = true;
+
         // 获取模型的 Renderer 组件
         Renderer renderer = GetComponent<Renderer>();
 
@@ -55,7 +57,7 @@ public class TestMusicItem : BaseMusicItem
     void Update()
     {
         if(beSelected == true){
-            this.gameObject.transform.position = input.GetRightHandPosition().position;
+            this.gameObject.transform.position = input.GetRightHandPosition().position+Offset;
         }
     }
 }

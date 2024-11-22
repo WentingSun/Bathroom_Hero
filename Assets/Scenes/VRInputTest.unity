@@ -606,6 +606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   input: {fileID: 571584227}
   beSelected: 0
+  Offset: {x: 0, y: 0, z: 0.5}
 --- !u!114 &474100296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -618,6 +619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 463fbfb203df82c449c48ea9911acf17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testMusicItem: {fileID: 0}
 --- !u!1 &486649077
 GameObject:
   m_ObjectHideFlags: 0
@@ -1470,6 +1472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   input: {fileID: 571584227}
   beSelected: 0
+  Offset: {x: 0, y: 0, z: 0}
 --- !u!135 &1027458137
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1743,6 +1746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 463fbfb203df82c449c48ea9911acf17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testMusicItem: {fileID: 0}
 --- !u!1 &1381139518
 GameObject:
   m_ObjectHideFlags: 0
