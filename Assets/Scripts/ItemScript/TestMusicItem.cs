@@ -10,11 +10,37 @@ public class TestMusicItem : BaseMusicItem
     public override void BeSelected()
     {
         beSelected = true;
+        // 获取模型的 Renderer 组件
+        Renderer renderer = GetComponent<Renderer>();
+
+        if (renderer != null)
+        {
+            // 修改材质的颜色为黄色
+            renderer.material.color = Color.yellow;
+
+            Debug.Log($"{gameObject.name} color changed to yellow!");
+        }
+        else
+        {
+            Debug.LogWarning("Renderer not found on this object.");
+        }
+
     }
 
     public override void UnSelected()
     {
         beSelected =false;
+
+        // 获取模型的 Renderer 组件
+        Renderer renderer = GetComponent<Renderer>();
+        if (renderer != null)
+        {
+            // 修改材质的颜色为黄色
+            renderer.material.color = Color.black;
+
+            Debug.Log($"{gameObject.name} color changed to black!");
+        }
+
         Debug.Log("Method:UnSelected is used");
         AudioManager.Instance.PlaySound("TestSound");
     }

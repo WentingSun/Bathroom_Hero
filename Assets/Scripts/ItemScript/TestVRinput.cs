@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestVRinput : BaseVRInpute
+public class TestVRinput:BaseVRInpute
 {
 
     public override Transform GetHeadPosition(){
