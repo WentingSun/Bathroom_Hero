@@ -9,7 +9,6 @@ public class ClickHandler : MonoBehaviour
     public TestMusicItem testMusicItem; // 引用 TestMusicItem 脚本
     private XRGrabInteractable grabInteractable;
 
-    private bool isSelected = false; // 记录当前状态
 
     void Awake()
     {
@@ -32,25 +31,21 @@ public class ClickHandler : MonoBehaviour
     // 当按下 Grip 按钮并抓取物体时调用
     private void OnGripPressed(XRBaseInteractor interactor)
     {
-        if (isSelected)
+        if (testMusicItem != null)
         {
-            // 当前已被选中，触发 UnSelected()
-            Debug.Log("Grip pressed again, deselecting model!");
-            if (testMusicItem != null)
+            // 如果模型当前未选中，调用 BeSelected()
+            if (!testMusicItem.beSelected) 
             {
-                testMusicItem.UnSelected();
-            }
-            isSelected = false; // 切换到未选中状态
-        }
-        else
-        {
-            // 当前未被选中，触发 BeSelected()
-            Debug.Log("Grip pressed, selecting model!");
-            if (testMusicItem != null)
-            {
+                Debug.Log("Grip pressed, selecting model!");
                 testMusicItem.BeSelected();
             }
-            isSelected = true; // 切换到选中状态
+            else 
+            {
+                // 如果模型已选中，调用 UnSelected()
+                Debug.Log("Grip pressed again, deselecting model!");
+                testMusicItem.UnSelected();
+            }
+
         }
     }
 
