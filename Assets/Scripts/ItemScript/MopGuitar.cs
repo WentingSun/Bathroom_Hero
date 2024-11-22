@@ -12,6 +12,7 @@ public class MopGuitar : BaseMusicItem
     [SerializeField] private float ModeBRange;
     [SerializeField] private float ModeCRange;
     [SerializeField] private int soundIndex;
+    [SerializeField] private int indexRange; //the number of sounds in list
     public Vector3 rotationOffset;
     float distanseOfLeftHand => getDistanceOfHand();
 
@@ -19,6 +20,7 @@ public class MopGuitar : BaseMusicItem
     private void OnTriggerEnter(Collider other)
     {
         AudioManager.Instance.PlaySound(ToString(guitarMode, soundIndex));
+        soundIndex = (soundIndex + 1) % indexRange;
     }
 
     public override void BeSelected()

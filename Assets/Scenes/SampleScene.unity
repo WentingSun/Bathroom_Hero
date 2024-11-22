@@ -520,6 +520,7 @@ MonoBehaviour:
   ModeBRange: 2.4
   ModeCRange: 10000
   soundIndex: 0
+  indexRange: 1
   rotationOffset: {x: 0, y: 90, z: 0}
 --- !u!1 &444014106
 GameObject:
