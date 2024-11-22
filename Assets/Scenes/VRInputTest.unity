@@ -272,6 +272,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mop
       objectReference: {fileID: 0}
+    - target: {fileID: 6460550218444297850, guid: 551b106d77ef8c6458177ff6139590cf, type: 3}
+      propertyPath: input
+      value: 
+      objectReference: {fileID: 1872353423}
     - target: {fileID: 6866306515882513585, guid: 551b106d77ef8c6458177ff6139590cf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -663,6 +667,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   input: {fileID: 571584227}
   beSelected: 0
+  Offset: {x: 0, y: 0, z: 0}
 --- !u!114 &474100296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1528,6 +1533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   input: {fileID: 571584227}
   beSelected: 0
+  Offset: {x: 0, y: 0, z: 0}
 --- !u!135 &1027458137
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2865,6 +2871,7 @@ GameObject:
   - component: {fileID: 1872353422}
   - component: {fileID: 1872353421}
   - component: {fileID: 1872353420}
+  - component: {fileID: 1872353423}
   m_Layer: 0
   m_Name: XR Origin (XR Rig)
   m_TagString: Untagged
@@ -2919,6 +2926,21 @@ Transform:
   - {fileID: 680664690}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1872353423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872353419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 930aea375ef9a284c87d56d6d4ff15ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Head: {fileID: 2013339627}
+  RightHand: {fileID: 486649077}
+  LeftHand: {fileID: 1509804511}
 --- !u!1 &2013339627
 GameObject:
   m_ObjectHideFlags: 0
