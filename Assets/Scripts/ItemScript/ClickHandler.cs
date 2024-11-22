@@ -42,12 +42,14 @@ public class ClickHandler : MonoBehaviour
             {
                 Debug.Log("Grip pressed, selecting model!");
                 MusicItem.BeSelected();
+                GameManager.Instance.UpdatePlayerState(PlayerState.playerSelectMop);
             }
             else 
             {
                 // 如果模型已选中，调用 UnSelected()
                 Debug.Log("Grip pressed again, deselecting model!");
                 MusicItem.UnSelected();
+                GameManager.Instance.UpdatePlayerState(PlayerState.PlayerSelectNothing);
             }
 
         }

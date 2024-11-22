@@ -100,6 +100,7 @@ public enum PlayerState
 {
     playerSelectMop,
     playerSelectTubelight,
+    PlayerSelectNothing,
     playerWatchMirror,
     playerDontWatchMirror
 }
