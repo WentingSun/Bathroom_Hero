@@ -1,7 +1,8 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(TestMusicItem))]
+[CustomEditor(typeof(BaseMusicItem), true)]
+[CanEditMultipleObjects]
 public class MusicItemTestButton : Editor
 {
     public override void OnInspectorGUI()
@@ -10,7 +11,7 @@ public class MusicItemTestButton : Editor
         DrawDefaultInspector();
 
         // 获取目标脚本
-        TestMusicItem example = (TestMusicItem)target;
+        BaseMusicItem example = (BaseMusicItem)target;
 
         // 添加一个按钮
         if (GUILayout.Button("UnSelected()"))

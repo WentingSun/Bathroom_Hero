@@ -32,6 +32,7 @@ public class TestMusicItem : BaseMusicItem
 
     public override void UnSelected()
     {
+
         beSelected =false;
 
         // 获取模型的 Renderer 组件
@@ -44,8 +45,7 @@ public class TestMusicItem : BaseMusicItem
             Debug.Log($"{gameObject.name} color changed to black!");
         }
 
-        Debug.Log("Method:UnSelected is used");
-        AudioManager.Instance.PlaySound("TestSound");
+
     }
 
 
@@ -59,6 +59,7 @@ public class TestMusicItem : BaseMusicItem
     // Update is called once per frame
     void Update()
     {
+
         if(beSelected == true){
             Vector3 targetPosition = input.GetRightHandPosition().position+Offset;
             this.gameObject.transform.position = Vector3.Lerp(
@@ -75,6 +76,6 @@ public class TestMusicItem : BaseMusicItem
             targetPosition,
             Time.deltaTime * 20f // 平滑速度
             );
-        }
+
     }
 }
