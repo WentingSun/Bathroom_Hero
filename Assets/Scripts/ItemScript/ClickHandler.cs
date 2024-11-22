@@ -6,8 +6,8 @@ using UnityEngine;
 public class ClickHandler : MonoBehaviour
 {
 
-    public TestMusicItem testMusicItem; // 引用 TestMusicItem 脚本
-    private XRGrabInteractable grabInteractable;
+    public BaseMusicItem MusicItem; // 引用 TestMusicItem 脚本
+    [SerializeField]private XRGrabInteractable grabInteractable;
 
 
     void Awake()
@@ -16,9 +16,9 @@ public class ClickHandler : MonoBehaviour
         grabInteractable = GetComponent<XRGrabInteractable>();
 
         // 确保 testMusicItem 已经设置
-        if (testMusicItem == null)
+        if (MusicItem == null)
         {
-            testMusicItem = GetComponent<TestMusicItem>();
+            MusicItem = GetComponent<BaseMusicItem>();
         }
 
         // 监听 XRGrabInteractable 的事件
@@ -27,23 +27,27 @@ public class ClickHandler : MonoBehaviour
             grabInteractable.onSelectEntered.AddListener(OnGripPressed);
         }
     }
+    
+    public void setMusicItem(BaseMusicItem item){
+        MusicItem = item;
+    }
 
     // 当按下 Grip 按钮并抓取物体时调用
     private void OnGripPressed(XRBaseInteractor interactor)
     {
-        if (testMusicItem != null)
+        if (MusicItem != null)
         {
             // 如果模型当前未选中，调用 BeSelected()
-            if (!testMusicItem.beSelected) 
+            if (!MusicItem.beSelected) 
             {
                 Debug.Log("Grip pressed, selecting model!");
-                testMusicItem.BeSelected();
+                MusicItem.BeSelected();
             }
             else 
             {
                 // 如果模型已选中，调用 UnSelected()
                 Debug.Log("Grip pressed again, deselecting model!");
-                testMusicItem.UnSelected();
+                MusicItem.UnSelected();
             }
 
         }

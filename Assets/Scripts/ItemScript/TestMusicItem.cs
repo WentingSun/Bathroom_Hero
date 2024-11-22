@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class TestMusicItem : BaseMusicItem
 {
-    [SerializeField]
-    public bool beSelected;
+    
     private Vector3 initialPosition; // 用于存储模型的初始位置
     [SerializeField]Vector3 Offset;
 

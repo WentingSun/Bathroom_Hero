@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BaseMusicItem : MonoBehaviour, IMusicItem
 {
+    public bool beSelected;
     [SerializeField] public TestVRinput input;
     public virtual void BeSelected()
     {

@@ -6,6 +6,8 @@ public class MopGuitar : BaseMusicItem
 {
     [SerializeField] Transform Mop;
     [SerializeField] Transform FixPoint;
+    [SerializeField] Vector3 FixPointOffset;
+    [SerializeField] private Transform rightHandCollider;
     [SerializeField] bool isSelected;
     [SerializeField] private GuitarMode guitarMode;
     [SerializeField] private float ModeARange;
@@ -19,6 +21,7 @@ public class MopGuitar : BaseMusicItem
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("onTriggerEnter");
         AudioManager.Instance.PlaySound(ToString(guitarMode, soundIndex));
         soundIndex = (soundIndex + 1) % indexRange;
     }
@@ -86,8 +89,10 @@ public class MopGuitar : BaseMusicItem
     {
         while (isSelected)
         {
-            Vector3 direction = input.GetLeftHandPosition().position - FixPoint.position;
+            Vector3 direction = input.GetLeftHandPosition().position - (FixPoint.position+FixPointOffset);
             Mop.rotation = Quaternion.LookRotation(direction) * Quaternion.Euler(rotationOffset);
+            Mop.position = FixPoint.position+FixPointOffset;
+            rightHandCollider.position = input.GetRightHandPosition().position;
             yield return null;
         }
     }
