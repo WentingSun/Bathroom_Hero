@@ -6,7 +6,7 @@ public class MopGuitar : BaseMusicItem
 {
     [SerializeField] Transform Mop;
     [SerializeField] Transform FixPoint;
-    [SerializeField] Vector3 FixPointOffset;
+    // [SerializeField] Vector3 FixPointOffset;
     [SerializeField] private Transform rightHandCollider;
     [SerializeField] bool isSelected;
     [SerializeField] private GuitarMode guitarMode;
@@ -89,9 +89,9 @@ public class MopGuitar : BaseMusicItem
     {
         while (isSelected)
         {
-            Vector3 direction = input.GetLeftHandPosition().position - (FixPoint.position+FixPointOffset);
+            Vector3 direction = input.GetLeftHandPosition().position - FixPoint.position;
             Mop.rotation = Quaternion.LookRotation(direction) * Quaternion.Euler(rotationOffset);
-            Mop.position = FixPoint.position+FixPointOffset;
+            Mop.position = FixPoint.position;
             rightHandCollider.position = input.GetRightHandPosition().position;
             yield return null;
         }
