@@ -634,6 +634,138 @@ MonoBehaviour:
     pitch: 1
     Source: {fileID: 0}
     loop: 0
+  - Name: ModeB00
+    clip: {fileID: 8300000, guid: ded004abd7d225444827d2730aa152d4, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeB01
+    clip: {fileID: 8300000, guid: 810c5ff65a46b5c45bd3046378a5c4e9, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeB02
+    clip: {fileID: 8300000, guid: 9ebc68e2c7cbda34d9892f4d86e91411, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeB03
+    clip: {fileID: 8300000, guid: 896a7b5111fef0848acaffeacd8eab3b, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeB04
+    clip: {fileID: 8300000, guid: ccca0e2241fff8e469a38b00ba72fe0a, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeB05
+    clip: {fileID: 8300000, guid: f10452bb0f5a98b4399dbddfd7fcc613, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeB06
+    clip: {fileID: 8300000, guid: e03352a402b3fb04c81525231b0528f1, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeB07
+    clip: {fileID: 8300000, guid: 50e24fcd6fbb99540a6f85b156fd0f8f, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeB08
+    clip: {fileID: 8300000, guid: 9e17e69235115d74a91e251369b953b5, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeB09
+    clip: {fileID: 8300000, guid: ed34d74b7347dfa49916cf51bec4679c, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeB10
+    clip: {fileID: 8300000, guid: 23bb687d2699c594b8ababa82c7c5bb6, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeC00
+    clip: {fileID: 8300000, guid: d4acd6343361f4b4ca8ec183a8822e87, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeC01
+    clip: {fileID: 8300000, guid: cd45da130639f17419dd0003e229502b, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeC02
+    clip: {fileID: 8300000, guid: 529a3af5e3e4b0f4cb36afe29a4d1931, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeC03
+    clip: {fileID: 8300000, guid: 23421416329123544ae88a775a6d84ef, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeC04
+    clip: {fileID: 8300000, guid: 34d9bf1c4e028014a97583a37329183d, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeC05
+    clip: {fileID: 8300000, guid: fe26e218169c114459de37c450fff6d0, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeC06
+    clip: {fileID: 8300000, guid: ca5427cd468b217408c7c3b8c90543d6, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeC07
+    clip: {fileID: 8300000, guid: fb40b7e3856025a4ebe4fc1961ece3d3, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeC08
+    clip: {fileID: 8300000, guid: bf99407082afede47b24e3a204bd4489, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeC09
+    clip: {fileID: 8300000, guid: 81a7632613e21204fb488db45e089bfc, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeC10
+    clip: {fileID: 8300000, guid: e5908b37b544bfc4988e58f7da393837, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
   FixedSoundsList: []
 --- !u!1001 &1314837465
 PrefabInstance:
@@ -645,15 +777,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1773296542634469954, guid: 551b106d77ef8c6458177ff6139590cf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.3470338
       objectReference: {fileID: 0}
     - target: {fileID: 1773296542634469954, guid: 551b106d77ef8c6458177ff6139590cf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.36
       objectReference: {fileID: 0}
     - target: {fileID: 1773296542634469954, guid: 551b106d77ef8c6458177ff6139590cf, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.177
       objectReference: {fileID: 0}
     - target: {fileID: 1773296542634469954, guid: 551b106d77ef8c6458177ff6139590cf, type: 3}
       propertyPath: m_LocalRotation.w
@@ -683,18 +815,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3485859371214467859, guid: 551b106d77ef8c6458177ff6139590cf, type: 3}
-      propertyPath: FixPointOffset.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3485859371214467859, guid: 551b106d77ef8c6458177ff6139590cf, type: 3}
-      propertyPath: FixPointOffset.y
-      value: 0.24
-      objectReference: {fileID: 0}
-    - target: {fileID: 3485859371214467859, guid: 551b106d77ef8c6458177ff6139590cf, type: 3}
-      propertyPath: FixPointOffset.z
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4903108214051378663, guid: 551b106d77ef8c6458177ff6139590cf, type: 3}
       propertyPath: m_Name
       value: Mop
@@ -703,6 +823,14 @@ PrefabInstance:
       propertyPath: input
       value: 
       objectReference: {fileID: 1606282282}
+    - target: {fileID: 7839389459828926717, guid: 551b106d77ef8c6458177ff6139590cf, type: 3}
+      propertyPath: ModeARange
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7839389459828926717, guid: 551b106d77ef8c6458177ff6139590cf, type: 3}
+      propertyPath: indexRange
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
