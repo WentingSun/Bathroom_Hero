@@ -272,6 +272,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mop
       objectReference: {fileID: 0}
+    - target: {fileID: 733404312782522057, guid: 551b106d77ef8c6458177ff6139590cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1801201607056465818, guid: 551b106d77ef8c6458177ff6139590cf, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.34593
@@ -424,17 +428,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 733404312782522057, guid: 551b106d77ef8c6458177ff6139590cf, type: 3}
   m_PrefabInstance: {fileID: 105239433}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &105239435 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6460550218444297850, guid: 551b106d77ef8c6458177ff6139590cf, type: 3}
-  m_PrefabInstance: {fileID: 105239433}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e61c5b6551251754eaaedb769e7e96d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &105239436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -643,7 +636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 463fbfb203df82c449c48ea9911acf17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MusicItem: {fileID: 105239435}
+  MusicItem: {fileID: 0}
   grabInteractable: {fileID: 0}
 --- !u!1 &299398990
 GameObject:
@@ -705,7 +698,8 @@ GameObject:
   - component: {fileID: 474100290}
   - component: {fileID: 474100289}
   - component: {fileID: 474100294}
-  - component: {fileID: 474100296}
+  - component: {fileID: 474100297}
+  - component: {fileID: 474100298}
   m_Layer: 0
   m_Name: cup
   m_TagString: Untagged
@@ -976,7 +970,7 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!114 &474100296
+--- !u!114 &474100297
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -985,11 +979,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 474100288}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 463fbfb203df82c449c48ea9911acf17, type: 3}
+  m_Script: {fileID: 11500000, guid: e78b61493d11bd547a785cdf56ddc98c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MusicItem: {fileID: 0}
-  grabInteractable: {fileID: 0}
+  musicItem: {fileID: 0}
+--- !u!114 &474100298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474100288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b3ffce71f8c0e64cb5619bce7f4e89e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beSelected: 0
+  input: {fileID: 0}
+  Offset: {x: 0, y: 0, z: 0}
 --- !u!1 &486649077
 GameObject:
   m_ObjectHideFlags: 0
@@ -2185,7 +2193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8006221349504746238, guid: e53f0d8c03aeabd46aba2d274a380d79, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

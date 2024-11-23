@@ -6,7 +6,8 @@ using UnityEngine;
 public class ClickHandler : MonoBehaviour
 {
 
-    public BaseMusicItem MusicItem; // 引用 MusicItem 脚本
+    public TestMusicItem MusicItem; // 引用 MusicItem 脚本
+    
     [SerializeField]private XRGrabInteractable grabInteractable;
 
     //测试用
@@ -23,11 +24,15 @@ public class ClickHandler : MonoBehaviour
         initialPosition=this.transform.position;
         beSelected = false;
 
+        if (grabInteractable == null)
+        {
+            grabInteractable = GetComponent<XRGrabInteractable>();
+        }
 
         // 确保 MusicItem 已经设置
         if (MusicItem == null)
         {
-            MusicItem = GetComponent<BaseMusicItem>();
+            MusicItem = GetComponent<TestMusicItem>();
         }
 
         // 监听 XRGrabInteractable 的事件
@@ -50,7 +55,8 @@ public class ClickHandler : MonoBehaviour
             if (!beSelected) 
             {
                 Debug.Log("Grip pressed, selecting model!");
-                BeSelected();
+                MusicItem.BeSelected();
+                TestBeSelected();
 
                 GameManager.Instance.UpdatePlayerState(PlayerState.playerSelectMop);
             }
@@ -58,7 +64,8 @@ public class ClickHandler : MonoBehaviour
             {
                 // 如果模型已选中，调用 UnSelected()
                 Debug.Log("Grip pressed again, deselecting model!");
-                UnSelected();
+                MusicItem.UnSelected();
+                TestUnSelected();
                 
                 GameManager.Instance.UpdatePlayerState(PlayerState.PlayerSelectNothing);
             }
@@ -66,10 +73,9 @@ public class ClickHandler : MonoBehaviour
         }
     }
 
-     public void BeSelected()
+     public void TestBeSelected()
     {
-        beSelected = true;
-
+        
         // 获取模型的 Renderer 组件
         Renderer renderer = GetComponent<Renderer>();
         // 修改材质的颜色为黄色
@@ -77,10 +83,8 @@ public class ClickHandler : MonoBehaviour
         Debug.Log($"{gameObject.name} color changed to yellow!");
     }
 
-    public  void UnSelected()
+    public  void TestUnSelected()
     {
-
-        beSelected =false;
 
         // 获取模型的 Renderer 组件
         Renderer renderer = GetComponent<Renderer>();
@@ -88,30 +92,6 @@ public class ClickHandler : MonoBehaviour
         renderer.material.color = Color.black;
         Debug.Log($"{gameObject.name} color changed to black!");
 
-
-
     }
-    // void Update()
-    // {
-
-    //     if(beSelected == true){
-    //         Vector3 targetPosition = currentInteractor.transform.position + currentInteractor.transform.forward * 0.2f;
-    //         this.gameObject.transform.position = Vector3.Lerp(
-    //         this.gameObject.transform.position,
-    //         targetPosition,
-    //         Time.deltaTime * 20f // 平滑速度
-    //         );
-    //         //this.gameObject.transform.position = input.GetRightHandPosition().position+Offset;
-    //     }
-    //     if(beSelected == false){
-    //         Vector3 targetPosition = initialPosition;
-    //         this.gameObject.transform.position = Vector3.Lerp(
-    //         this.gameObject.transform.position,
-    //         targetPosition,
-    //         Time.deltaTime * 20f // 平滑速度
-    //         );
-
-    //     }
-    // }
 
 }
