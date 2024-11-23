@@ -9,7 +9,7 @@ public class FixPointMoment : MonoBehaviour
     [SerializeField] Vector3 FixPointOffset;
     private float distance; // 子对象与父对象的固定距离
 
-    private Vector3 initialOffset;
+    [SerializeField]private Vector3 initialOffset;
 
     void Start()
     {
