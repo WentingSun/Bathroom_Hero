@@ -60,7 +60,10 @@ public class MopGuitar : BaseMusicItem
         {
             Debug.Log("Range Mode Attribute has problem");
         }
-
+        if (input == null)
+        {
+            Debug.Log("Input is empty!");
+        }
 
     }
 
