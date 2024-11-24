@@ -8,6 +8,9 @@ public class AudioManager : Singleton<AudioManager>
 
     public Sound[] Sounds;
     public Sound[] FixedSoundsList;
+    [SerializeField] AudioSource currentSound;
+    public int soundIndex;
+    [SerializeField] private int indexRange; //the number of sounds in list
     protected override void Awake()
     {
         base.Awake();
@@ -47,7 +50,28 @@ public class AudioManager : Singleton<AudioManager>
             Debug.LogWarning("Audio name:" + soundName + "not found.");
             return;
         }
-        sound.Source.Play();
+        if (currentSound == null)
+        {
+            StartCoroutine(PlayClip(sound.Source));
+        }
+
+    }
+
+    public void AddSoundIndex()
+    {
+        soundIndex = (soundIndex + 1) % indexRange;
+    }
+
+    private IEnumerator PlayClip(AudioSource Source)
+    {
+        currentSound = Source;
+        Source.Play();
+        while (Source.isPlaying)
+        {
+            yield return null;
+        }
+        currentSound = null;
+        AddSoundIndex();
     }
 
 

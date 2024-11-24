@@ -827,6 +827,9 @@ MonoBehaviour:
     Source: {fileID: 0}
     loop: 0
   FixedSoundsList: []
+  currentSound: {fileID: 0}
+  soundIndex: 0
+  indexRange: 11
 --- !u!1001 &1314837465
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -22,9 +22,11 @@ public class MopGuitar : BaseMusicItem
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("onTriggerEnter");
-        AudioManager.Instance.PlaySound(ToString(guitarMode, soundIndex));
-        soundIndex = (soundIndex + 1) % indexRange;
+        AudioManager.Instance.PlaySound(ToString(guitarMode, AudioManager.Instance.soundIndex));
+        // soundIndex = (soundIndex + 1) % indexRange;
     }
+
+
 
     public override void BeSelected()
     {
