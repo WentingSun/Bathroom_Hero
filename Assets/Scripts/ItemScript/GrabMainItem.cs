@@ -7,7 +7,8 @@ public class GrabMainItem : MonoBehaviour
 {
     private XRGrabInteractable grabInteractable; // 引用 XR Grab Interactable
     public BaseMusicItem musicItem; // 引用 TestMusicItem 脚本
-    private bool isSelected = false; // 记录当前是否选中状态
+    private Vector3 initialPosition; // 用于存储模型的初始位置
+    private bool isSelected = false; // 跟踪当前是否已选中
 
     void Awake()
     {
@@ -15,7 +16,11 @@ public class GrabMainItem : MonoBehaviour
         grabInteractable = GetComponent<XRGrabInteractable>();
 
         // 获取 TestMusicItem 组件
-        musicItem = GetComponent<BaseMusicItem>();
+        //musicItem = GetComponent<BaseMusicItem>();
+
+        //记录初始位置
+        initialPosition=this.transform.position;
+        Debug.Log("test"+initialPosition);
 
         if (grabInteractable != null)
         {
@@ -58,8 +63,10 @@ public class GrabMainItem : MonoBehaviour
         Renderer renderer = GetComponent<Renderer>();
         if (renderer != null)
         {
-            // 修改材质的颜色为黄色
             renderer.material.color = Color.yellow;
+            //renderer.enabled = false; // 隐藏模型
+            this.transform.position = initialPosition;
+
             Debug.Log($"{gameObject.name} color changed to yellow!");
         }
         else
