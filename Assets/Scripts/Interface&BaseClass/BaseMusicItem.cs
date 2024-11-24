@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseMusicItem : MonoBehaviour,IMusicItem
+public class BaseMusicItem : MonoBehaviour, IMusicItem
 {
-    [SerializeField] public TestVRinput input;
+    public bool beSelected;
+    [SerializeField] public BaseVRInput input;
     public virtual void BeSelected()
     {
         throw new System.NotImplementedException();
@@ -23,12 +24,12 @@ public class BaseMusicItem : MonoBehaviour,IMusicItem
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
