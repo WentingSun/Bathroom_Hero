@@ -629,7 +629,67 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sounds:
   - Name: ModeA00
-    clip: {fileID: 8300000, guid: 068edfc864b30774f8129ebd8fee1452, type: 3}
+    clip: {fileID: 8300000, guid: a7d27efcfbc2b1d49a3b5381cee3fab2, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeA01
+    clip: {fileID: 8300000, guid: 3db23080342262447a7bd63ab198f65a, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeA02
+    clip: {fileID: 8300000, guid: ffa94c319c756e2478ed24c28966246c, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeA03
+    clip: {fileID: 8300000, guid: 39997683dd605c64e98814725ad22ff0, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeA04
+    clip: {fileID: 8300000, guid: c138ced08430ec245acf3fe82455dd6a, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeA05
+    clip: {fileID: 8300000, guid: 750843df2a326c54eb7b4212c3353ec5, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeA06
+    clip: {fileID: 8300000, guid: 86b2be49b9e25db4bac62d15989ffec6, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeA07
+    clip: {fileID: 8300000, guid: ed4a14d71573e874cabd3468620432b1, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeA08
+    clip: {fileID: 8300000, guid: feb4506101964bc4198938ae03231b8d, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeA09
+    clip: {fileID: 8300000, guid: 473998fb03ee12242bef884263f52835, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeA10
+    clip: {fileID: 8300000, guid: 675ec48e521b6c340ba959eaaee49804, type: 3}
     volumn: 0.689
     pitch: 1
     Source: {fileID: 0}
