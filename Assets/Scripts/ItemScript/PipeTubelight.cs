@@ -19,6 +19,7 @@ public class PipeTubelight : BaseMusicItem
     
     private bool isFollowLeftHand = false;
     private bool isFollowRightHand = false;
+    
 
     [SerializeField]private InputDevice RightHandController; // 用于存储左手控制器的输入设备
     public BaseMusicItem musicItem; // 引用 TestMusicItem 脚本
@@ -127,6 +128,8 @@ public class PipeTubelight : BaseMusicItem
     public override void BeSelected()
     {
         isSelected=!isSelected;
+        //
+        beSelected=isSelected;
         
     }
     public void isFollowRight()
