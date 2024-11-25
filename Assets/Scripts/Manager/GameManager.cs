@@ -15,63 +15,73 @@ public class GameManager : Singleton<GameManager>
     public static event Action<PlayerState> OnPlayerStateChage;
 
     #region GameState
-    public void UpdateGameState(GameState newState){
+    public void UpdateGameState(GameState newState)
+    {
         currentGameState = newState;
-        switch(newState) {
+        switch (newState)
+        {
             case GameState.GameStart:
                 HandleGameStart();
-            break;
+                break;
             case GameState.GameOver:
                 HandleGameOver();
-            break;
+                break;
             default:
-                throw new ArgumentOutOfRangeException(nameof(newState), newState , null);
+                throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
 
         }
         OnGameStateChange?.Invoke(newState);
     }
-    
 
-        private void HandleGameOver(){
+
+    private void HandleGameOver()
+    {
         throw new NotImplementedException();
     }
 
-    private void HandleGameStart(){
+    private void HandleGameStart()
+    {
         throw new NotImplementedException();
     }
     #endregion
 
     #region PlayerState
-    public void UpdatePlayerState(PlayerState newState){
+    public void UpdatePlayerState(PlayerState newState)
+    {
         currentPlayerState = newState;
-        switch(newState){
+        switch (newState)
+        {
             case PlayerState.playerSelectMop:
-            HandleSelectMop();
-            break;
+                HandleSelectMop();
+                break;
             case PlayerState.playerSelectTubelight:
-            HandleSelectTubelight();
-            break;
+                HandleSelectTubelight();
+                break;
             case PlayerState.playerWatchMirror:
-            HandlePlayerWatchMirror();
-            break;
+                HandlePlayerWatchMirror();
+                break;
             case PlayerState.playerDontWatchMirror:
-            HandlePlayerDontWathMirror();
-            break;
+                HandlePlayerDontWathMirror();
+                break;
             default:
-                throw new ArgumentOutOfRangeException(nameof(newState), newState, null);    
+                throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
         }
         OnPlayerStateChage?.Invoke(newState);
     }
-    private void HandleSelectMop(){
+    private void HandleSelectMop()
+    {
         throw new NotImplementedException();
     }
-    private void HandleSelectTubelight(){
+    private void HandleSelectTubelight()
+    {
         throw new NotImplementedException();
     }
-    private void HandlePlayerWatchMirror(){
+    private void HandlePlayerWatchMirror()
+    {
         throw new NotImplementedException();
     }
-    private void HandlePlayerDontWathMirror(){
+    private void HandlePlayerDontWathMirror()
+    {
         throw new NotImplementedException();
     }
 
@@ -80,14 +90,17 @@ public class GameManager : Singleton<GameManager>
 
 }
 
-public enum GameState{
+public enum GameState
+{
     GameStart,
     GameOver
 }
 
-public enum PlayerState{
+public enum PlayerState
+{
     playerSelectMop,
     playerSelectTubelight,
+    PlayerSelectNothing,
     playerWatchMirror,
     playerDontWatchMirror
 }

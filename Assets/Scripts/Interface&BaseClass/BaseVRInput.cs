@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseVRInpute : MonoBehaviour,IVRInput
+public class BaseVRInput : MonoBehaviour, IVRInput
 {
     public GameObject Head;
     public GameObject RightHand;
