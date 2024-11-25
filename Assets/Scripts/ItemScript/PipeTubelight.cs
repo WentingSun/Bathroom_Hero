@@ -44,38 +44,13 @@ public class PipeTubelight : BaseMusicItem
     // TODO: Change the Controller Key code
     public void followHandController()
     {
-        // Z Follow Left Controller
 
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            if (pipe != null && input != null)
-            {
-                BeSelected();
-                isFollowLeft();
-            }
-        }
-        // X Follow Right Controller
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            if (pipe != null && input != null)
-            {
-                BeSelected();
-                isFollowRight();
-            }
-        }
-
-        if (isSelected && isFollowLeftHand)
+        if (isSelected)
         {
             pipe.transform.position = input.GetLeftHandPosition().position + offset;
             pipe.transform.rotation = input.GetLeftHandPosition().rotation;
         }
 
-        if (isSelected && isFollowRightHand)
-        {
-            pipe.transform.position = input.GetRightHandPosition().position + offset;
-            pipe.transform.rotation = input.GetRightHandPosition().rotation;
-
-        }
 
         // Return to original position
         if (!isSelected)
@@ -91,6 +66,11 @@ public class PipeTubelight : BaseMusicItem
     {
         isSelected=!isSelected;
         //
+        if (isSelected)
+        {
+            pipe.transform.position = input.GetLeftHandPosition().position + offset;
+            pipe.transform.rotation = input.GetLeftHandPosition().rotation;
+        }
         beSelected=isSelected;
         
     }
