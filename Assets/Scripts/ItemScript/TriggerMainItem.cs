@@ -1,48 +1,70 @@
- using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
+
 using UnityEngine.XR;
+
 
 public class TriggerMainItem : MonoBehaviour
 {
-    private InputDevice leftHandController; // 用于存储左手控制器的输入设备
+    private XRController controller; // 引用手柄控制器
     public BaseMusicItem musicItem; // 引用 TestMusicItem 脚本
-    private bool isSelected = false; // 记录当前是否选中状态
+    private bool isSelected = false; // 用于检测按键状态
     private bool isCoolingDown = false; // 冷却状态标记
     [SerializeField] private float coolDownTime = 1f; // 冷却时间（秒）
+    [SerializeField]private InputDevice RightHandController; // 用于存储左手控制器的输入设备
 
 
     // Start is called before the first frame update
      void Awake()
     {
-        // 获取左手手柄设备
-        List<InputDevice> devices = new List<InputDevice>();
-        InputDevices.GetDevicesAtXRNode(XRNode.LeftHand, devices);
+        // 获取当前手柄（例如左手或右手）
+        controller = GetComponent<XRController>();
+        if (controller == null)
+        {
+            Debug.LogError("XRController is not assigned to this object!");
+        }
 
-        if (devices.Count > 0)
-        {
-            leftHandController = devices[0];
-            Debug.Log("Left-hand controller found!");
-        }
-        else
-        {
-            Debug.LogError("No left-hand controller detected!");
-        }
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        // 确保左手手柄存在
-        if (leftHandController.isValid)
+        List<InputDevice> devices = new List<InputDevice>();
+        InputDevices.GetDevicesAtXRNode(XRNode.RightHand, devices);//
+        Debug.Log(devices == null);
+        Debug.Log(devices.Count);
+        if (devices.Count  > 0 &&  devices != null)
         {
-            // 检查左手的 Trigger 键是否被按下
-            if (leftHandController.TryGetFeatureValue(CommonUsages.triggerButton, out bool isPressed) && isPressed)
-            {
-                HandleTriggerPress();
-            }
+            RightHandController = devices[0];
+            Debug.Log("Right-hand controller found!");
         }
+        else
+        {
+            Debug.LogError("No Right-hand controller detected!");
+        }
+        // if (controller != null)
+        // {
+        //     // 检测 Trigger 按键是否被按下
+        //     bool v = controller.inputDevice.TryGetFeatureValue(CommonUsages.PrimaryTrigger, out bool isPressed);
+
+        //     if (isPressed && !isSelected) // 第一次按下
+        //     {
+        //         isSelected = true;
+
+        //         if (musicItem != null)
+        //         {
+        //             musicItem.BeSelected();
+        //             Debug.Log("Triggered BeSelected on MapB!");
+        //         }
+        //     }
+        //     else if (!isPressed && isSelected) // 松开时重置状态
+        //     {
+        //         isSelected = false;
+        //     }
+        // }
     }
     private void HandleTriggerPress()
     {
