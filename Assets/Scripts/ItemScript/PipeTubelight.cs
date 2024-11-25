@@ -8,7 +8,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class PipeTubelight : BaseMusicItem
 {
-    private bool isSeleced = false;
+    private bool isSelected = false;
     
     //Pipe Position
     private Vector3 initialPipePosition;
@@ -63,13 +63,13 @@ public class PipeTubelight : BaseMusicItem
             }
         }
 
-        if (isSeleced && isFollowLeftHand)
+        if (isSelected && isFollowLeftHand)
         {
             pipe.transform.position = input.GetLeftHandPosition().position + offset;
             pipe.transform.rotation = input.GetLeftHandPosition().rotation;
         }
 
-        if (isSeleced && isFollowRightHand)
+        if (isSelected && isFollowRightHand)
         {
             pipe.transform.position = input.GetRightHandPosition().position + offset;
             pipe.transform.rotation = input.GetRightHandPosition().rotation;
@@ -77,7 +77,7 @@ public class PipeTubelight : BaseMusicItem
         }
 
         // Return to original position
-        if (!isSeleced)
+        if (!isSelected)
         {
             pipe.transform.position = initialPipePosition;
             pipe.transform.rotation = initialPipeRotation;
@@ -88,8 +88,8 @@ public class PipeTubelight : BaseMusicItem
 
     public override void BeSelected()
     {
-        isSeleced=!isSeleced;
-
+        isSelected=!isSelected;
+        
     }
     public void isFollowRight()
     {
@@ -102,6 +102,6 @@ public class PipeTubelight : BaseMusicItem
         isFollowRightHand = false;
     }
     public bool getIsSelected(){
-        return isSeleced;
+        return isSelected;
     }
 }

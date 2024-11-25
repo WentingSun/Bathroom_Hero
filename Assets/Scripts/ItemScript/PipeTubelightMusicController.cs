@@ -10,7 +10,9 @@ public class PipeTubelightMusicController : MonoBehaviour
     public AudioClip[] collisionSounds;          // 碰撞音效数组
     public AnimationCurve speedToPitch;          // 动画曲线，用于映射速度到音高
     public AnimationCurve speedToVolume;         // 动画曲线，用于映射速度到音量
-    public float maxSpeed = 8f;                  // 速度上限
+    
+    public float swingPlaySpeed=30f;
+    public float swingStopSpeed=4f;
 
     private Vector3 previousPosition;            // 上一帧的位置
     private float swingSpeed;                    // 当前速度
@@ -28,6 +30,7 @@ public class PipeTubelightMusicController : MonoBehaviour
     private void Update()
     {
         SwingSound();
+        
     }
 
     private void SwingSound()
@@ -37,7 +40,7 @@ public class PipeTubelightMusicController : MonoBehaviour
         previousPosition = transform.position;
 
         // 将速度归一化到 [0, 1]
-        float normalizedSpeed = Mathf.Clamp01(swingSpeed / maxSpeed);
+        float normalizedSpeed = Mathf.Clamp01(swingSpeed / 10f);
 
         // 根据曲线映射音高和音量
         float targetPitch = speedToPitch.Evaluate(normalizedSpeed);
@@ -48,13 +51,13 @@ public class PipeTubelightMusicController : MonoBehaviour
         swingAudioSource.volume = targetVolume;
 
         // 当速度大于某个阈值且音效没有播放时播放音效
-        if (swingSpeed > 1f && !swingAudioSource.isPlaying)
+        if (swingSpeed > swingPlaySpeed && !swingAudioSource.isPlaying)
         {
             swingAudioSource.Play();
         }
 
         // 当物体静止时，停止播放音效
-        if (swingSpeed <= 1f && swingAudioSource.isPlaying)
+        if (swingSpeed <= swingStopSpeed && swingAudioSource.isPlaying)
         {
             swingAudioSource.Stop();
         }
@@ -69,6 +72,7 @@ public class PipeTubelightMusicController : MonoBehaviour
             collisionAudioSource.PlayOneShot(collisionSounds[randomIndex]);
         }
     }
+    
 }
 
 
