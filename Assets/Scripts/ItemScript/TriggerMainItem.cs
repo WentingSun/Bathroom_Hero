@@ -21,10 +21,10 @@ public class TriggerMainItem : MonoBehaviour
     {
         // 获取当前手柄（例如左手或右手）
         controller = GetComponent<XRController>();
-        if (controller == null)
-        {
-            Debug.LogError("XRController is not assigned to this object!");
-        }
+        // if (controller == null)
+        // {
+        //     Debug.LogError("XRController is not assigned to this object!");
+        // }
 
     }
 
