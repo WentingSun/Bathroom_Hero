@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.ProBuilder.Shapes;
 using static UnityEngine.GraphicsBuffer;
 
 
@@ -16,10 +17,7 @@ public class PipeTubelight : BaseMusicItem
     private GameObject pipe;
     [SerializeField] public Vector3 offset;
     
-    private bool isFollowLeftHand = false;
-    private bool isFollowRightHand = false;
-    
-
+    Transform pivotTransform;
 
     // Start is called before the first frame update
     void Start()
@@ -28,11 +26,9 @@ public class PipeTubelight : BaseMusicItem
         //Initial Position
         initialPipePosition = pipe.transform.position;
         initialPipeRotation = pipe.transform.rotation;
+        //后面我自己调整内容
+        pivotTransform=pipe.transform.Find("pivot");
 
-        //Cotroller Position
-        Vector3 inputHeadPosition = input.GetHeadPosition().position;
-        Vector3 inputLeftHandPosition = input.GetLeftHandPosition().position;
-        Vector3 inputRightHandPosition = input.GetRightHandPosition().position;
     }
 
     // Update is called once per frame
@@ -41,48 +37,33 @@ public class PipeTubelight : BaseMusicItem
         followHandController();
     }
 
-    // TODO: Change the Controller Key code
     public void followHandController()
     {
-
         if (isSelected)
         {
             pipe.transform.position = input.GetLeftHandPosition().position + offset;
             pipe.transform.rotation = input.GetLeftHandPosition().rotation;
         }
-
 
         // Return to original position
         if (!isSelected)
         {
             pipe.transform.position = initialPipePosition;
             pipe.transform.rotation = initialPipeRotation;
-            isFollowLeftHand = false;
-            isFollowRightHand = false;
         }
     }
 
     public override void BeSelected()
     {
         isSelected=!isSelected;
-        //
-        if (isSelected)
-        {
-            pipe.transform.position = input.GetLeftHandPosition().position + offset;
-            pipe.transform.rotation = input.GetLeftHandPosition().rotation;
-        }
         beSelected=isSelected;
         
     }
-    public void isFollowRight()
+    public override void UnSelected()
     {
-        isFollowRightHand = true;
-        isFollowLeftHand = false;
-    }
-    public void isFollowLeft()
-    {
-        isFollowLeftHand = true;
-        isFollowRightHand = false;
+        isSelected=!isSelected;
+        beSelected=isSelected;
+        
     }
     public bool getIsSelected(){
         return isSelected;
