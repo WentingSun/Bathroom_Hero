@@ -93,7 +93,7 @@ private void SwingSound()
 
 private void BasicPipeSoundPlayer()
 {
-    Debug.Log(swingSpeed); // 现在会正确输出 swingSpeed 的值
+    // Debug.Log(swingSpeed); // 现在会正确输出 swingSpeed 的值
     
     if (pipe.getIsSelected())
     {

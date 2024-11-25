@@ -355,6 +355,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MopA
       objectReference: {fileID: 0}
+    - target: {fileID: 4903108214051378663, guid: 551b106d77ef8c6458177ff6139590cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5342796076169713272, guid: 551b106d77ef8c6458177ff6139590cf, type: 3}
       propertyPath: m_Name
       value: LHandPosition
@@ -435,6 +439,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7839389459828926717, guid: 551b106d77ef8c6458177ff6139590cf, type: 3}
+      propertyPath: input
+      value: 
+      objectReference: {fileID: 571584227}
     - target: {fileID: 8539592984700476126, guid: 551b106d77ef8c6458177ff6139590cf, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.09
@@ -474,6 +482,67 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicItem: {fileID: 1334406502}
   coolDownTime: 1
+--- !u!1001 &217430517
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 635915152144374453, guid: 1073c9c31b9ea014898c4023f3009302, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 635915152144374453, guid: 1073c9c31b9ea014898c4023f3009302, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 635915152144374453, guid: 1073c9c31b9ea014898c4023f3009302, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 635915152144374453, guid: 1073c9c31b9ea014898c4023f3009302, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8650606
+      objectReference: {fileID: 0}
+    - target: {fileID: 635915152144374453, guid: 1073c9c31b9ea014898c4023f3009302, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 635915152144374453, guid: 1073c9c31b9ea014898c4023f3009302, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.5016674
+      objectReference: {fileID: 0}
+    - target: {fileID: 635915152144374453, guid: 1073c9c31b9ea014898c4023f3009302, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 635915152144374453, guid: 1073c9c31b9ea014898c4023f3009302, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 635915152144374453, guid: 1073c9c31b9ea014898c4023f3009302, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 60.221
+      objectReference: {fileID: 0}
+    - target: {fileID: 635915152144374453, guid: 1073c9c31b9ea014898c4023f3009302, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3503388772517609282, guid: 1073c9c31b9ea014898c4023f3009302, type: 3}
+      propertyPath: input
+      value: 
+      objectReference: {fileID: 571584227}
+    - target: {fileID: 7577544321006327506, guid: 1073c9c31b9ea014898c4023f3009302, type: 3}
+      propertyPath: m_Name
+      value: TubelightPipe
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1073c9c31b9ea014898c4023f3009302, type: 3}
 --- !u!1 &299398990
 GameObject:
   m_ObjectHideFlags: 0
@@ -2511,6 +2580,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MopB
       objectReference: {fileID: 0}
+    - target: {fileID: 4903108214051378663, guid: 551b106d77ef8c6458177ff6139590cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5342796076169713272, guid: 551b106d77ef8c6458177ff6139590cf, type: 3}
       propertyPath: m_Name
       value: LHandPosition
@@ -4141,3 +4214,4 @@ SceneRoots:
   - {fileID: 1228519466}
   - {fileID: 701453868}
   - {fileID: 310631739}
+  - {fileID: 217430517}
