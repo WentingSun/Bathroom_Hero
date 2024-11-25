@@ -18,6 +18,7 @@ public class PipeTubelight : BaseMusicItem
     
     private bool isFollowLeftHand = false;
     private bool isFollowRightHand = false;
+    
 
 
     // Start is called before the first frame update
@@ -89,6 +90,8 @@ public class PipeTubelight : BaseMusicItem
     public override void BeSelected()
     {
         isSelected=!isSelected;
+        //
+        beSelected=isSelected;
         
     }
     public void isFollowRight()
