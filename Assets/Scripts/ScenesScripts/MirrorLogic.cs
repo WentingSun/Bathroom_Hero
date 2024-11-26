@@ -49,7 +49,7 @@ public class MirrorLogic : MonoBehaviour
                 // 设置材质的主纹理为拖把模式纹理
                 // MirrorMaterial.SetTexture("_MainTex", TextureMop);
                 ToggleRenderPlaneVisibility(renderplaneBRenderer);
-                //ToggleRenderPlaneUnVisibility(renderplaneARenderer);
+                ToggleRenderPlaneUnVisibility(renderplaneARenderer);
                 ToggleRenderPlaneUnVisibility(renderplaneCRenderer);
                 Debug.Log("MirrorLogic: Mop Texture Mode");
                 //在此添加代码
@@ -59,7 +59,7 @@ public class MirrorLogic : MonoBehaviour
                 // 设置材质的主纹理为光剑模式纹理
                 // MirrorMaterial.SetTexture("_MainTex", TextureLightsaber);
                 ToggleRenderPlaneVisibility(renderplaneCRenderer);
-                //ToggleRenderPlaneUnVisibility(renderplaneARenderer);
+                ToggleRenderPlaneUnVisibility(renderplaneARenderer);
                 ToggleRenderPlaneUnVisibility(renderplaneBRenderer);
                 Debug.Log("MirrorLogic: Tubelight Texture Mode");
                 //在此添加代码
@@ -67,7 +67,7 @@ public class MirrorLogic : MonoBehaviour
 
             case PlayerState.PlayerSelectNothing:
                 Debug.Log("默认状态");
-                //ToggleRenderPlaneVisibility(renderplaneARenderer);
+                ToggleRenderPlaneVisibility(renderplaneARenderer);
                 ToggleRenderPlaneUnVisibility(renderplaneBRenderer);
                 ToggleRenderPlaneUnVisibility(renderplaneCRenderer);
                 break;

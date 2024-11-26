@@ -10091,7 +10091,7 @@ Transform:
   m_GameObject: {fileID: 964508637}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5000044, y: 0.49999562, z: -0.49999562, w: -0.5000044}
-  m_LocalPosition: {x: -5.41, y: 6.3005004, z: 28.902}
+  m_LocalPosition: {x: -15.55, y: 6.3, z: 28.9}
   m_LocalScale: {x: 19.530584, y: 0.18239245, z: 9.119622}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12275,7 +12275,7 @@ MonoBehaviour:
   renderplaneC: {fileID: 1741293499}
   transformdoorB: {fileID: 829628468}
   transformdoorC: {fileID: 832030973}
-  MirrorMaterial: {fileID: 0}
+  MirrorMaterial: {fileID: 2100000, guid: 4580dd49916b3c542b97109c8ca425f3, type: 2}
   TextureMop: {fileID: 0}
   TextureLightsaber: {fileID: 0}
   renderplaneARenderer: {fileID: 2014458096}
@@ -12309,8 +12309,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentGameState: 0
-  currentPlayerState: 0
-  currentSelectedItem: 0
+  currentPlayerState: 2
+  currentSelectedItem: 2
 --- !u!1 &1228064107
 GameObject:
   m_ObjectHideFlags: 0
@@ -21174,7 +21174,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 4580dd49916b3c542b97109c8ca425f3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
