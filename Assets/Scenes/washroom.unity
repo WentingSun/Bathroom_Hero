@@ -18007,7 +18007,6 @@ GameObject:
   - component: {fileID: 1760751286}
   - component: {fileID: 1760751285}
   - component: {fileID: 1760751284}
-  - component: {fileID: 1760751287}
   m_Layer: 0
   m_Name: Camera C
   m_TagString: Untagged
@@ -18089,28 +18088,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1760751287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1760751283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8beb4930a6c9af146a62e39c80af6334, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CameraA: {fileID: 1301414173}
-  CameraB: {fileID: 1766955998}
-  CameraC: {fileID: 1760751285}
-  renderplaneB: {fileID: 0}
-  renderplaneC: {fileID: 0}
-  transformdoorB: {fileID: 0}
-  transformdoorC: {fileID: 0}
-  MirrorMaterial: {fileID: 0}
-  TextureMop: {fileID: 0}
-  TextureLightsaber: {fileID: 0}
 --- !u!1 &1766955996
 GameObject:
   m_ObjectHideFlags: 0
@@ -18122,7 +18099,6 @@ GameObject:
   - component: {fileID: 1766955999}
   - component: {fileID: 1766955998}
   - component: {fileID: 1766955997}
-  - component: {fileID: 1766956000}
   m_Layer: 0
   m_Name: Camera B
   m_TagString: Untagged
@@ -18204,28 +18180,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!114 &1766956000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1766955996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8beb4930a6c9af146a62e39c80af6334, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CameraA: {fileID: 1301414173}
-  CameraB: {fileID: 1766955998}
-  CameraC: {fileID: 1760751285}
-  renderplaneB: {fileID: 763621696}
-  renderplaneC: {fileID: 0}
-  transformdoorB: {fileID: 829628468}
-  transformdoorC: {fileID: 0}
-  MirrorMaterial: {fileID: 0}
-  TextureMop: {fileID: 0}
-  TextureLightsaber: {fileID: 0}
 --- !u!1 &1780460074
 GameObject:
   m_ObjectHideFlags: 0
