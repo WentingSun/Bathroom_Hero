@@ -31,12 +31,12 @@ public class AudioManager : Singleton<AudioManager>
 
     private void audioManagerOnGameStateChange(GameState gameState)
     {
-        throw new System.NotImplementedException();
+        // throw new System.NotImplementedException();
     }
 
     private void audioManagerOnPlayerStateChange(PlayerState playerState)
     {
-        throw new System.NotImplementedException();
+        // throw new System.NotImplementedException();
     }
 
     public void PlaySound(string soundName)
