@@ -28,7 +28,6 @@ public class PipeTubelight : BaseMusicItem
         initialPipeRotation = pipe.transform.rotation;
         //后面我自己调整内容
         pivotTransform=pipe.transform.Find("pivot");
-
     }
 
     // Update is called once per frame
@@ -55,13 +54,13 @@ public class PipeTubelight : BaseMusicItem
 
     public override void BeSelected()
     {
-        isSelected=!isSelected;
+        isSelected=true;
         beSelected=isSelected;
         
     }
     public override void UnSelected()
     {
-        isSelected=!isSelected;
+        isSelected=false;
         beSelected=isSelected;
         
     }
