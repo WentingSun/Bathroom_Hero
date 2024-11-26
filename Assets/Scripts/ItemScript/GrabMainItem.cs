@@ -9,6 +9,7 @@ public class GrabMainItem : MonoBehaviour
     private XRGrabInteractable grabInteractable; // 引用 XR Grab Interactable
     private BaseMusicItem currentMusicItem;     // 当前交互的 BaseMusicItem
     public BaseMusicItem realMop; 
+    public GameManager gameManager; // 引用 GameManager
     private bool isSelected = false;            // 跟踪当前是否已选中
     private float cooldown = 0.5f;              // 冷却时间（秒）
     private bool isCoolingDown = false;         // 冷却标志
@@ -39,10 +40,12 @@ public class GrabMainItem : MonoBehaviour
         {
             selectedObject = realMop.gameObject;
             HandleSelection(selectedObject, "Mop");
+            GameManager.Instance.UpdatePlayerState(PlayerState.playerSelectMop);
         }
         else if (selectedObject.CompareTag("Pipe"))
         {
             HandleSelection(selectedObject, "Pipe");
+            GameManager.Instance.UpdatePlayerState(PlayerState.playerSelectTubelight);
         }
 
         // 开始冷却
