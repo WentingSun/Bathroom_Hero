@@ -22,13 +22,13 @@ public class GazeDetection : MonoBehaviour
 
         if (dotProduct > gazeThreshold)
         {
-            Debug.Log("用户正在看向镜子");
-            GameManager.Instance.UpdatePlayerState(PlayerState.playerWatchMirror);
+            // Debug.Log("用户正在看向镜子");
+            // GameManager.Instance.UpdatePlayerState(PlayerState.playerWatchMirror);
         }
         else
         {
-            Debug.Log("用户没有看向镜子");
-            GameManager.Instance.UpdatePlayerState(PlayerState.playerDontWatchMirror);
+            // Debug.Log("用户没有看向镜子");
+            // GameManager.Instance.UpdatePlayerState(PlayerState.playerDontWatchMirror);
         }
     }
 }

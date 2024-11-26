@@ -2,21 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class GrabMainItem : MonoBehaviour
 {
     private XRGrabInteractable grabInteractable; // 引用 XR Grab Interactable
-    private BaseMusicItem currentMusicItem;     // 当前交互的 BaseMusicItem
-    public BaseMusicItem realMop; 
+    [SerializeField] private BaseMusicItem currentMusicItem;     // 当前交互的 BaseMusicItem
+    public BaseMusicItem realItem;
+    
+    
+    public bool MopBeSelected = false;
+    public bool PipeBeSelected = false;
+    public GameObject hidePoint;
     public GameManager gameManager; // 引用 GameManager
     private bool isSelected = false;            // 跟踪当前是否已选中
     private float cooldown = 0.5f;              // 冷却时间（秒）
     private bool isCoolingDown = false;         // 冷却标志
+    [SerializeField]private bool isHide= false;
+
+    // 静态引用，用于全局管理 Mop 和 Pipe 的状态
+    private static GrabMainItem currentlySelectedItem;
 
     void Awake()
     {
         grabInteractable = GetComponent<XRGrabInteractable>();
+
 
         if (grabInteractable != null)
         {
@@ -38,22 +49,43 @@ public class GrabMainItem : MonoBehaviour
         // 根据标签判断触发逻辑
         if (selectedObject.CompareTag("Mop"))
         {
-            selectedObject = realMop.gameObject;
+            selectedObject = realItem.gameObject;
             HandleSelection(selectedObject, "Mop");
+            isHide =true;
+            //MopBeSelected = true;
             GameManager.Instance.UpdatePlayerState(PlayerState.playerSelectMop);
         }
         else if (selectedObject.CompareTag("Pipe"))
         {
+            selectedObject = realItem.gameObject;
             HandleSelection(selectedObject, "Pipe");
+            isHide =true;
+            //PipeBeSelected = true;
             GameManager.Instance.UpdatePlayerState(PlayerState.playerSelectTubelight);
         }
 
         // 开始冷却
-        StartCoroutine(CooldownCoroutine());
+        //StartCoroutine(CooldownCoroutine());
     }
+
+    // private IEnumerator HiddingObj()
+    // {
+    //     while (true)
+    //     {
+    //         this.gameObject.transform.position = hidePoint.transform.position;
+    //     }
+
+    //     yield return null;
+    // }
 
     private void HandleSelection(GameObject selectedObject, string type)
     {
+        // 如果有其他对象被选中，先取消其选中状态
+        if (currentlySelectedItem != null && currentlySelectedItem != this)
+        {
+            currentlySelectedItem.HandleUnselection();
+        }
+
         // 获取 BaseMusicItem 脚本
         currentMusicItem = selectedObject.GetComponent<BaseMusicItem>();
 
@@ -68,16 +100,26 @@ public class GrabMainItem : MonoBehaviour
             // 调用 BeSelected
             Debug.Log($"{type} selected!");
             currentMusicItem.BeSelected();
-            //TestBeSelected();
             isSelected = true;
+            currentlySelectedItem = this; // 更新当前选中项
         }
         else
         {
-            // 调用 UnSelected
-            Debug.Log($"{type} deselected!");
+            HandleUnselection(); // 如果再次选中相同对象，则取消选中
+        }
+    }
+    private void HandleUnselection()
+    {
+        if (isSelected && currentMusicItem != null)
+        {
+            Debug.Log($"Deselected {currentMusicItem.name}");
             currentMusicItem.UnSelected();
-            //TestUnSelected();
             isSelected = false;
+
+            if (currentlySelectedItem == this)
+            {
+                currentlySelectedItem = null; // 重置当前选中项
+            }
         }
     }
 
@@ -120,5 +162,13 @@ public class GrabMainItem : MonoBehaviour
             Debug.LogWarning("Renderer component is missing!");
         }
     }
-    
+
+    void Update()
+    {
+        if (isHide){
+            this.gameObject.transform.position = hidePoint.transform.position;
+        }
+        
+    }
+
 }

@@ -9,7 +9,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class PipeTubelight : BaseMusicItem
 {
-    private bool isSelected = false;
+    [SerializeField]private bool isSelected = false;
     [SerializeField] private Transform Pivot;
     
     //Pipe Position
@@ -42,9 +42,10 @@ public class PipeTubelight : BaseMusicItem
     {
         if (isSelected)
         {
-            
-            Pivot.rotation = input.GetLeftHandPosition().rotation *  Quaternion.Euler(offsetRotation);
             Pivot.position = input.GetLeftHandPosition().position + offset;
+            Pivot.rotation = input.GetLeftHandPosition().rotation *  Quaternion.Euler(offsetRotation);
+            
+            
         }
 
         // Return to original position
@@ -59,6 +60,7 @@ public class PipeTubelight : BaseMusicItem
     {
         isSelected=true;
         beSelected=isSelected;
+        Debug.Log("tubelight is selected");
         
     }
     public override void UnSelected()
