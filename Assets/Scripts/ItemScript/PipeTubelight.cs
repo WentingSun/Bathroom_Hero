@@ -10,12 +10,14 @@ using static UnityEngine.GraphicsBuffer;
 public class PipeTubelight : BaseMusicItem
 {
     private bool isSelected = false;
+    [SerializeField] private Transform Pivot;
     
     //Pipe Position
     private Vector3 initialPipePosition;
     private Quaternion initialPipeRotation;
     private GameObject pipe;
     [SerializeField] public Vector3 offset;
+    [SerializeField] public Vector3 offsetRotation;
     
     Transform pivotTransform;
 
@@ -24,10 +26,10 @@ public class PipeTubelight : BaseMusicItem
     {
         pipe = this.gameObject;
         //Initial Position
-        initialPipePosition = pipe.transform.position;
-        initialPipeRotation = pipe.transform.rotation;
+        initialPipePosition = Pivot.position;
+        initialPipeRotation = Pivot.rotation;
         //后面我自己调整内容
-        pivotTransform=pipe.transform.Find("pivot");
+        // pivotTransform=pipe.transform.Find("pivot");
     }
 
     // Update is called once per frame
@@ -40,15 +42,16 @@ public class PipeTubelight : BaseMusicItem
     {
         if (isSelected)
         {
-            pipe.transform.position = input.GetLeftHandPosition().position + offset;
-            pipe.transform.rotation = input.GetLeftHandPosition().rotation;
+            
+            Pivot.rotation = input.GetLeftHandPosition().rotation *  Quaternion.Euler(offsetRotation);
+            Pivot.position = input.GetLeftHandPosition().position + offset;
         }
 
         // Return to original position
         if (!isSelected)
         {
-            pipe.transform.position = initialPipePosition;
-            pipe.transform.rotation = initialPipeRotation;
+            Pivot.position = initialPipePosition;
+            Pivot.rotation = initialPipeRotation;
         }
     }
 
