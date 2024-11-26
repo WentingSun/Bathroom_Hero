@@ -59,6 +59,9 @@ public class GameManager : Singleton<GameManager>
             case PlayerState.playerSelectTubelight:
                 HandleSelectTubelight();
                 break;
+            case PlayerState.PlayerSelectNothing:
+                HandleSelectNothing();
+                break;
             case PlayerState.playerWatchMirror:
                 HandlePlayerWatchMirror();
                 break;
@@ -70,6 +73,13 @@ public class GameManager : Singleton<GameManager>
         }
         OnPlayerStateChage?.Invoke(newState);
     }
+
+    private void HandleSelectNothing()
+    {
+        currentSelectedItem = SelectedItem.Nothing;
+        // throw new NotImplementedException();
+    }
+
     private void HandleSelectMop()
     {
         currentSelectedItem = SelectedItem.Mop;
@@ -114,7 +124,8 @@ public enum PlayerState
 public enum SelectedItem
 {
     Mop,
-    Tubelight
+    Tubelight,
+    Nothing
 }
 
 

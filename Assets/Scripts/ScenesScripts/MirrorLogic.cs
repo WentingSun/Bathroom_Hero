@@ -39,11 +39,13 @@ public class MirrorLogic : MonoBehaviour
             case PlayerState.playerSelectMop:
                 // 设置材质的主纹理为拖把模式纹理
                 MirrorMaterial.SetTexture("_MainTex", TextureMop);
+                Debug.Log("MirrorLogic: Mop Texture Mode");
                 break;
 
             case PlayerState.playerSelectTubelight:
                 // 设置材质的主纹理为光剑模式纹理
                 MirrorMaterial.SetTexture("_MainTex", TextureLightsaber);
+                Debug.Log("MirrorLogic: Tubelight Texture Mode");
                 break;
 
             default:

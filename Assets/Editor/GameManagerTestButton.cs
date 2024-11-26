@@ -22,5 +22,17 @@ public class GameManagerTestButton : Editor
         {
             example.UpdatePlayerState(PlayerState.playerDontWatchMirror);
         }
+        if (GUILayout.Button("Player Selects Mop"))
+        {
+            example.UpdatePlayerState(PlayerState.playerSelectMop);
+        }
+        if (GUILayout.Button("Player Selects Tubelight"))
+        {
+            example.UpdatePlayerState(PlayerState.playerSelectTubelight);
+        }
+        if (GUILayout.Button("Player Selects Nothing"))
+        {
+            example.UpdatePlayerState(PlayerState.PlayerSelectNothing);
+        }
     }
 }
