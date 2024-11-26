@@ -6,10 +6,12 @@ using UnityEngine.XR;
 
 public class GameManager : Singleton<GameManager>
 {
-    private GameState currentGameState;
+    [SerializeField] private GameState currentGameState;
     public GameState GameStat => currentGameState;
-    private PlayerState currentPlayerState;
+    [SerializeField] private PlayerState currentPlayerState;
     public PlayerState PlayerState => currentPlayerState;
+    [SerializeField] private SelectedItem currentSelectedItem;
+    public SelectedItem SelectedItem => currentSelectedItem;
 
     public static event Action<GameState> OnGameStateChange;
     public static event Action<PlayerState> OnPlayerStateChage;
@@ -70,19 +72,23 @@ public class GameManager : Singleton<GameManager>
     }
     private void HandleSelectMop()
     {
-        throw new NotImplementedException();
+        currentSelectedItem = SelectedItem.Mop;
+        // throw new NotImplementedException();
     }
     private void HandleSelectTubelight()
     {
-        throw new NotImplementedException();
+        currentSelectedItem = SelectedItem.Tubelight;
+        // throw new NotImplementedException();
     }
     private void HandlePlayerWatchMirror()
     {
-        throw new NotImplementedException();
+        // throw new NotImplementedException();
+        Debug.Log("Player Watch Mirror now");
     }
     private void HandlePlayerDontWathMirror()
     {
-        throw new NotImplementedException();
+        // throw new NotImplementedException();
+        Debug.Log("Player Dont Watch Mirror now");
     }
 
 
@@ -103,6 +109,12 @@ public enum PlayerState
     PlayerSelectNothing,
     playerWatchMirror,
     playerDontWatchMirror
+}
+
+public enum SelectedItem
+{
+    Mop,
+    Tubelight
 }
 
 
