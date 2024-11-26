@@ -97,9 +97,9 @@ private void BasicPipeSoundPlayer()
     
     if (pipe.getIsSelected())
     {
-        Debug.Log("被选择");
+        //Debug.Log("被选择");
         float normalizedSpeed = Mathf.Clamp01(swingSpeed / maxSpeed); 
-        Debug.Log("标准速度："+normalizedSpeed);        
+        //Debug.Log("标准速度："+normalizedSpeed);        
         if(normalizedSpeed!=0){
             BasicPipeAudioSource.volume = Mathf.Lerp(basicMinVolume, basicMaxVolume, normalizedSpeed);
         }else{

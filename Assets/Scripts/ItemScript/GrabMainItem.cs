@@ -1,62 +1,89 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class GrabMainItem : MonoBehaviour
 {
     private XRGrabInteractable grabInteractable; // 引用 XR Grab Interactable
-    public BaseMusicItem musicItem; // 引用 TestMusicItem 脚本
-    private Vector3 initialPosition; // 用于存储模型的初始位置
-    private bool isSelected = false; // 跟踪当前是否已选中
+    private BaseMusicItem currentMusicItem;     // 当前交互的 BaseMusicItem
+    public BaseMusicItem realMop; 
+    private bool isSelected = false;            // 跟踪当前是否已选中
+    private float cooldown = 0.5f;              // 冷却时间（秒）
+    private bool isCoolingDown = false;         // 冷却标志
 
     void Awake()
     {
-        // 获取 XRGrabInteractable 组件
         grabInteractable = GetComponent<XRGrabInteractable>();
-
-        // 获取 TestMusicItem 组件
-        //musicItem = GetComponent<BaseMusicItem>();
-
-        //记录初始位置
-        initialPosition=this.transform.position;
-        Debug.Log("test"+initialPosition);
 
         if (grabInteractable != null)
         {
-            // 监听手柄的 Grab 动作（selectEntered）
             grabInteractable.selectEntered.AddListener(OnGrab);
-        }
-    }
-
-    // 当按下 Grab 键时调用
-    private void OnGrab(SelectEnterEventArgs args)
-    {
-        if (musicItem != null)
-        {
-            if (!isSelected)
-            {
-                // 调用选中逻辑
-                Debug.Log("Grab key pressed, selecting.");
-                musicItem.BeSelected();
-                TestBeSelected();
-                isSelected = true;
-            }
-            else
-            {
-                // 调用取消选中逻辑
-                Debug.Log("Grab key pressed again, deselecting.");
-                musicItem.UnSelected();
-                TestUnSelected();
-                isSelected = false;
-            }
         }
         else
         {
-            Debug.LogWarning("TestMusicItem is not attached to this GameObject.");
+            Debug.LogError("XRGrabInteractable component is missing!");
         }
     }
 
+    private void OnGrab(SelectEnterEventArgs args)
+    {
+        if (isCoolingDown) return; // 冷却中，忽略操作
+
+        // 检测当前抓取的对象
+        GameObject selectedObject = args.interactableObject.transform.gameObject;
+
+        // 根据标签判断触发逻辑
+        if (selectedObject.CompareTag("Mop"))
+        {
+            selectedObject = realMop.gameObject;
+            HandleSelection(selectedObject, "Mop");
+        }
+        else if (selectedObject.CompareTag("Pipe"))
+        {
+            HandleSelection(selectedObject, "Pipe");
+        }
+
+        // 开始冷却
+        StartCoroutine(CooldownCoroutine());
+    }
+
+    private void HandleSelection(GameObject selectedObject, string type)
+    {
+        // 获取 BaseMusicItem 脚本
+        currentMusicItem = selectedObject.GetComponent<BaseMusicItem>();
+
+        if (currentMusicItem == null)
+        {
+            Debug.LogWarning($"No BaseMusicItem script attached to {type}!");
+            return;
+        }
+
+        if (!isSelected)
+        {
+            // 调用 BeSelected
+            Debug.Log($"{type} selected!");
+            currentMusicItem.BeSelected();
+            //TestBeSelected();
+            isSelected = true;
+        }
+        else
+        {
+            // 调用 UnSelected
+            Debug.Log($"{type} deselected!");
+            currentMusicItem.UnSelected();
+            //TestUnSelected();
+            isSelected = false;
+        }
+    }
+
+    private IEnumerator CooldownCoroutine()
+    {
+        isCoolingDown = true;
+        yield return new WaitForSeconds(cooldown);
+        isCoolingDown = false;
+    }
     public void TestBeSelected()
     {
         // 获取模型的 Renderer 组件
@@ -65,7 +92,7 @@ public class GrabMainItem : MonoBehaviour
         {
             renderer.material.color = Color.yellow;
             //renderer.enabled = false; // 隐藏模型
-            this.transform.position = initialPosition;
+            //this.transform.position = initialPosition;
 
             Debug.Log($"{gameObject.name} color changed to yellow!");
         }
