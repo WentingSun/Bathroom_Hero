@@ -12206,6 +12206,76 @@ Transform:
   - {fileID: 819436883}
   m_Father: {fileID: 1248083145}
   m_LocalEulerAnglesHint: {x: 0, y: 14.085, z: 0}
+--- !u!1 &1218245303
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1218245305}
+  - component: {fileID: 1218245304}
+  - component: {fileID: 1218245306}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1218245304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218245303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8beb4930a6c9af146a62e39c80af6334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CameraA: {fileID: 1301414173}
+  CameraB: {fileID: 1766955998}
+  CameraC: {fileID: 1760751285}
+  renderplaneB: {fileID: 763621696}
+  renderplaneC: {fileID: 1741293499}
+  transformdoorB: {fileID: 829628468}
+  transformdoorC: {fileID: 0}
+  MirrorMaterial: {fileID: 0}
+  TextureMop: {fileID: 0}
+  TextureLightsaber: {fileID: 0}
+--- !u!4 &1218245305
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218245303}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -14.75, y: 0.05000019, z: 115.92}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1218245306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218245303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ff45e77a66a1bc408255bd9461a22ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentGameState: 0
+  currentPlayerState: 0
+  currentSelectedItem: 0
 --- !u!1 &1228064107
 GameObject:
   m_ObjectHideFlags: 0
@@ -13093,7 +13163,6 @@ GameObject:
   - component: {fileID: 1301414174}
   - component: {fileID: 1301414173}
   - component: {fileID: 1301414172}
-  - component: {fileID: 1301414175}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: Untagged
@@ -13175,28 +13244,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -13.893, y: -90, z: 0}
---- !u!114 &1301414175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1301414171}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8beb4930a6c9af146a62e39c80af6334, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CameraA: {fileID: 1301414173}
-  CameraB: {fileID: 1766955998}
-  CameraC: {fileID: 1760751285}
-  renderplaneB: {fileID: 763621696}
-  renderplaneC: {fileID: 1741293499}
-  transformdoorB: {fileID: 829628468}
-  transformdoorC: {fileID: 0}
-  MirrorMaterial: {fileID: 0}
-  TextureMop: {fileID: 0}
-  TextureLightsaber: {fileID: 0}
 --- !u!1 &1310045090
 GameObject:
   m_ObjectHideFlags: 0
@@ -22364,3 +22411,4 @@ SceneRoots:
   - {fileID: 1760751286}
   - {fileID: 829628468}
   - {fileID: 1766955999}
+  - {fileID: 1218245305}
