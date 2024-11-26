@@ -272,7 +272,6 @@ GameObject:
   - component: {fileID: 72135449}
   - component: {fileID: 72135448}
   - component: {fileID: 72135447}
-  - component: {fileID: 72135446}
   m_Layer: 0
   m_Name: mirror
   m_TagString: Untagged
@@ -280,21 +279,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &72135446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 72135445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e01c2c2a24eb4e440afd914c252c5c4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mirror: {fileID: 72135450}
-  gameManager: {fileID: 1746171311}
-  gazeThreshold: 0.9
 --- !u!65 &72135447
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2305,7 +2289,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentMusicItem: {fileID: 0}
   realItem: {fileID: 7839389460268926320}
-  MopBeSelected: 1
+  MopBeSelected: 0
   PipeBeSelected: 0
   hidePoint: {fileID: 936578612}
   gameManager: {fileID: 1746171311}
@@ -2410,7 +2394,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2724,7 +2708,7 @@ Transform:
   m_GameObject: {fileID: 936578612}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5805397, y: -1.774, z: 1.29}
+  m_LocalPosition: {x: 0.5805397, y: 1.01, z: 1.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4947,6 +4931,7 @@ GameObject:
   - component: {fileID: 2013339631}
   - component: {fileID: 2013339630}
   - component: {fileID: 2013339629}
+  - component: {fileID: 2013339632}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5138,6 +5123,21 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &2013339632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013339627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e01c2c2a24eb4e440afd914c252c5c4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mirror: {fileID: 72135450}
+  gameManager: {fileID: 0}
+  gazeThreshold: 0.9
 --- !u!1001 &319071144145185090
 PrefabInstance:
   m_ObjectHideFlags: 0

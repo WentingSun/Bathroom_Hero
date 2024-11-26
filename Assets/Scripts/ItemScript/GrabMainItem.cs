@@ -68,15 +68,6 @@ public class GrabMainItem : MonoBehaviour
         //StartCoroutine(CooldownCoroutine());
     }
 
-    // private IEnumerator HiddingObj()
-    // {
-    //     while (true)
-    //     {
-    //         this.gameObject.transform.position = hidePoint.transform.position;
-    //     }
-
-    //     yield return null;
-    // }
 
     private void HandleSelection(GameObject selectedObject, string type)
     {
@@ -165,8 +156,11 @@ public class GrabMainItem : MonoBehaviour
 
     void Update()
     {
+        // 获取模型的 Renderer 组件
+        Renderer renderer = GetComponent<Renderer>();
         if (isHide){
             this.gameObject.transform.position = hidePoint.transform.position;
+            renderer.enabled = false; // 隐藏模型
         }
         
     }
