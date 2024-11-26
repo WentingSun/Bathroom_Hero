@@ -693,7 +693,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   realMop: {fileID: 709766542}
-  gameManager: {fileID: 0}
+  gameManager: {fileID: 1746171311}
 --- !u!1 &474100288
 GameObject:
   m_ObjectHideFlags: 0
