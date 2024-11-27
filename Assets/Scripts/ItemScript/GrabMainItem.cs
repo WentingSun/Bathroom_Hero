@@ -10,11 +10,15 @@ public class GrabMainItem : MonoBehaviour
     private XRGrabInteractable grabInteractable; // 引用 XR Grab Interactable
     [SerializeField] private BaseMusicItem currentMusicItem;     // 当前交互的 BaseMusicItem
     public BaseMusicItem realItem;
+    public GameObject fakemop;
+    public GameObject fakepipe;
+    
     
     
     public bool MopBeSelected = false;
     public bool PipeBeSelected = false;
     public GameObject hidePoint;
+    private Vector3 initialPosition; // 用于存储模型的初始位置
     public GameManager gameManager; // 引用 GameManager
     private bool isSelected = false;            // 跟踪当前是否已选中
     private float cooldown = 0.5f;              // 冷却时间（秒）
@@ -27,6 +31,9 @@ public class GrabMainItem : MonoBehaviour
     void Awake()
     {
         grabInteractable = GetComponent<XRGrabInteractable>();
+
+         // 在脚本初始化时获取并存储模型的初始位置
+        initialPosition = this.transform.position;
 
 
         if (grabInteractable != null)
@@ -158,10 +165,15 @@ public class GrabMainItem : MonoBehaviour
     {
         // 获取模型的 Renderer 组件
         Renderer renderer = GetComponent<Renderer>();
+        //Renderer fakerenderer = fakeItem.GetComponent<Renderer>();
         if (isHide){
-            this.gameObject.transform.position = hidePoint.transform.position;
+            this.gameObject.transform.position = initialPosition;
             renderer.enabled = false; // 隐藏模型
         }
+        if(!isHide){
+            renderer.enabled = true;
+        }
+
         
     }
 
