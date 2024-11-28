@@ -6,44 +6,50 @@ public class GoastFollow : MonoBehaviour
 {
 
     public Transform cameraTransform; // 摄像机引用
-    private Vector3 offset; // 位置偏移量
+    [SerializeField]private Vector3 offset; // 位置偏移量
     [SerializeField]private Quaternion initialRotationDifference; // 初始旋转偏移量
-    [SerializeField]float newY;
+ 
+    float unchangableX;
 
-    void Start()
-    {
+    void Awake(){
         // 计算初始位置偏移量
         offset = transform.position - cameraTransform.position;
 
         // 计算初始旋转的偏移量（镜像旋转）
-        // initialRotationDifference = Quaternion.Inverse(cameraTransform.rotation) * transform.rotation;
-        // initialRotationDifference = cameraTransform.rotation;
         transform.rotation = initialRotationDifference;
+        //
+        transform.position=cameraTransform.position+offset;
+    }
+    void Start()
+    {
+        
+        //
+        unchangableX=transform.position.x;
     }
 
     void Update()
     {
-        // // 更新位置：保持与摄像机的相对偏移
-        transform.position = cameraTransform.position + offset;
+        //transform.position=cameraTransform.position+offset;
+        // 获取摄像机的当前位置
+        Vector3 cameraPosition = cameraTransform.position;
 
-        // // 更新旋转：以镜像方式跟随摄像机
-        // // Quaternion mirroredRotation = Quaternion.Inverse(cameraTransform.rotation) * initialRotationDifference;
-        Quaternion mirroredRotation = cameraTransform.rotation;
-        // Quaternion mirroredRotation = Quaternion.Inverse(cameraTransform.rotation);
-        // transform.rotation = initialRotationDifference * mirroredRotation;
-        transform.rotation =  initialRotationDifference * mirroredRotation;
-        newY = -transform.rotation.y;
-        // Debug.Log(newY);
-        // transform.rotation =  new Quaternion(transform.rotation.x, newY, transform.rotation.z, transform.rotation.w);
+        // 保持Cube的X轴位置不变，Y轴和Z轴位置跟随摄像机
+        transform.position = new Vector3(unchangableX, cameraPosition.y + offset.y, cameraPosition.z + offset.z);
         
+        // 获取摄像机的旋转
+        Quaternion cameraRotation = cameraTransform.rotation;
 
-        // // 获取当前物体的欧拉角
-        // Vector3 currentEulerAngles = transform.eulerAngles;
+        // 提取摄像机的欧拉角
+        Vector3 cameraEulerAngles = cameraRotation.eulerAngles;
 
-        // // 对 X 和 Z 轴的旋转取反，Y 轴保持不变
-        // Vector3 reversedEulerAngles = new Vector3(-currentEulerAngles.x, currentEulerAngles.y, -currentEulerAngles.z);
+        // 分离 Y 轴旋转（反向）和 X-Z 平面旋转（同步）
+        Quaternion yRotation = Quaternion.Euler(0, -cameraEulerAngles.y, 0); // 绕Y 轴旋转
+        Quaternion xzRotation = Quaternion.Euler(cameraEulerAngles.x, 0, cameraEulerAngles.z); // X 和 Z 不变
 
-        // // 将修改后的欧拉角设置回物体的旋转
-        // transform.eulerAngles = reversedEulerAngles;
+        // 组合旋转
+        Quaternion finalRotation = yRotation * xzRotation;
+
+        // 应用到 Cube 的旋转
+        transform.rotation = finalRotation;
     }
 }
