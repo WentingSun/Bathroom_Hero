@@ -14780,6 +14780,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7861240796763685530, guid: 4b793af1aca34144b90b3be727112f17, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861240796763685530, guid: 4b793af1aca34144b90b3be727112f17, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15695,7 +15703,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1225877743}
   - component: {fileID: 1225877745}
-  - component: {fileID: 1225877744}
   - component: {fileID: 1225877746}
   m_Layer: 0
   m_Name: Manager
@@ -15719,21 +15726,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1511069845}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1225877744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1225877742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ff45e77a66a1bc408255bd9461a22ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentGameState: 0
-  currentPlayerState: 0
-  currentSelectedItem: 0
 --- !u!114 &1225877745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22592,6 +22584,8 @@ MonoBehaviour:
   ModeCRange: 0
   soundIndex: 0
   indexRange: 0
+  initPosition: {x: 0, y: 0, z: 0}
+  initRotation: {x: 0, y: 0, z: 0, w: 0}
   rotationOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &1787281288
 Transform:

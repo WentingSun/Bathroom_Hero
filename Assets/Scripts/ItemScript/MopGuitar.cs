@@ -15,6 +15,8 @@ public class MopGuitar : BaseMusicItem
     [SerializeField] private float ModeCRange;
     [SerializeField] private int soundIndex;
     [SerializeField] private int indexRange; //the number of sounds in list
+    [SerializeField] private Vector3 initPosition;
+    [SerializeField] private Quaternion initRotation;
     public Vector3 rotationOffset;
     float distanseOfLeftHand => getDistanceOfHand();
 
@@ -28,6 +30,8 @@ public class MopGuitar : BaseMusicItem
 
     public override void BeSelected()
     {
+        initPosition = Mop.transform.position;
+        initRotation = Mop.transform.rotation;
         isSelected = true;
         Debug.Log("Mop be selected");
         StartCoroutine(UpdateRotation());
@@ -38,6 +42,8 @@ public class MopGuitar : BaseMusicItem
         isSelected = false;
         Debug.Log("Mop be unselected");
         StopCoroutine(UpdateRotation());
+        Mop.transform.position = initPosition;
+        Mop.transform.rotation =initRotation;
     }
 
     private float getDistanceOfHand()
