@@ -6,7 +6,7 @@ public class GrabMainItem : MonoBehaviour
     private XRGrabInteractable grabInteractable;
     public BaseMusicItem realMop;
     public BaseMusicItem realPipe;
-    public GameManager gameManager;  // 确保你有对GameManager的引用
+    // public GameManager gameManager;  // 确保你有对GameManager的引用
     public GameObject fakeMop;
     public GameObject fakePipe;
 
@@ -36,18 +36,18 @@ public class GrabMainItem : MonoBehaviour
             Debug.LogError("XRGrabInteractable component is missing!");
         }
 
-        // 确保GameManager引用已设置
-        if (gameManager == null)
-        {
-            gameManager = GameManager.Instance; // 获取GameManager的实例
-        }
-        // 确保GameManager引用已设置
+        // // 确保GameManager引用已设置
+        // if (gameManager == null)
+        // {
+        //     gameManager = GameManager.Instance; // 获取GameManager的实例
+        // }
+        // // 确保GameManager引用已设置
 
-        if (gameManager == null)
-        {
-            Debug.LogError("GameManager instance is not assigned or not found.");
-        }
-        }
+        // if (gameManager == null)
+        // {
+        //     Debug.LogError("GameManager instance is not assigned or not found.");
+        // }
+    }
 
     private void OnGrab(SelectEnterEventArgs args)
     {
@@ -56,13 +56,13 @@ public class GrabMainItem : MonoBehaviour
         {
             HandleFakeItem(fakeMop, realMop, mopInitialPosition, mopInitialRotation, realPipe, fakePipe);
             // 更新玩家状态为选择了Mop
-            gameManager.UpdatePlayerState(PlayerState.playerSelectMop);
+            GameManager.Instance.UpdatePlayerState(PlayerState.playerSelectMop);
         }
         else if (gameObject == fakePipe)
         {
             HandleFakeItem(fakePipe, realPipe, pipeInitialPosition, pipeInitialRotation, realMop, fakeMop);
             // 更新玩家状态为选择了Pipe
-            gameManager.UpdatePlayerState(PlayerState.playerSelectTubelight);
+            GameManager.Instance.UpdatePlayerState(PlayerState.playerSelectTubelight);
         }
     }
 

@@ -19,17 +19,22 @@ public class GazeDetection : MonoBehaviour
 
         // 使用点积来判断视线方向是否接近镜子
         float dotProduct = Vector3.Dot(headDirection, mirrorDirection);
+        
 
         // 根据点积计算是否看向镜子
-        PlayerState newState = dotProduct > gazeThreshold 
-            ? PlayerState.playerWatchMirror 
+        PlayerState newState = dotProduct > gazeThreshold
+            ? PlayerState.playerWatchMirror
             : PlayerState.playerDontWatchMirror;
+
+        //  Debug.Log(Vector3.Dot(headDirection, mirrorDirection));
+        //  Debug.Log(headDirection);
 
         // 只有当状态发生变化时才更新状态
         if (newState != currentState)
         {
             currentState = newState; // 更新当前状态
-           // GameManager.Instance.UpdatePlayerState(currentState); // 通知 GameManager 更新状态
+            GameManager.Instance.UpdatePlayerState(currentState); // 通知 GameManager 更新状态
+           
 
             // 日志输出用于调试
             Debug.Log(newState == PlayerState.playerWatchMirror 
