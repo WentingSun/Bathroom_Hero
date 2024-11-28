@@ -8763,6 +8763,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   realMop: {fileID: 7839389460268926320}
   realPipe: {fileID: 651415328}
+  gameManager: {fileID: 1746171311}
   fakeMop: {fileID: 601707031}
   fakePipe: {fileID: 1832284674}
 --- !u!1 &607164041
@@ -12134,6 +12135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   realMop: {fileID: 0}
   realPipe: {fileID: 0}
+  gameManager: {fileID: 0}
   fakeMop: {fileID: 0}
   fakePipe: {fileID: 0}
 --- !u!114 &909763133
@@ -24051,6 +24053,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   realMop: {fileID: 7839389460268926320}
   realPipe: {fileID: 651415328}
+  gameManager: {fileID: 1746171311}
   fakeMop: {fileID: 601707031}
   fakePipe: {fileID: 1832284674}
 --- !u!1 &1832698588
