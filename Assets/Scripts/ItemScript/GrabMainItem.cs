@@ -1,40 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class GrabMainItem : MonoBehaviour
 {
-    private XRGrabInteractable grabInteractable; // 引用 XR Grab Interactable
-    [SerializeField] private BaseMusicItem currentMusicItem;     // 当前交互的 BaseMusicItem
-    public BaseMusicItem realItem;
-    public GameObject fakemop;
-    public GameObject fakepipe;
-    
-    
-    
-    public bool MopBeSelected = false;
-    public bool PipeBeSelected = false;
-    public GameObject hidePoint;
-    private Vector3 initialPosition; // 用于存储模型的初始位置
-    public GameManager gameManager; // 引用 GameManager
-    private bool isSelected = false;            // 跟踪当前是否已选中
-    private float cooldown = 0.5f;              // 冷却时间（秒）
-    private bool isCoolingDown = false;         // 冷却标志
-    [SerializeField]private bool isHide= false;
+    private XRGrabInteractable grabInteractable;
+    public BaseMusicItem realMop;
+    public BaseMusicItem realPipe;
+    public GameManager gameManager;  // 确保你有对GameManager的引用
+    public GameObject fakeMop;
+    public GameObject fakePipe;
 
-    // 静态引用，用于全局管理 Mop 和 Pipe 的状态
-    private static GrabMainItem currentlySelectedItem;
+    private Vector3 mopInitialPosition;
+    private Vector3 pipeInitialPosition;
+    private Quaternion mopInitialRotation;
+    private Quaternion pipeInitialRotation;
 
-    void Awake()
+    private static BaseMusicItem currentlySelectedRealItem; // 记录当前激活的真物品
+
+    private void Awake()
     {
         grabInteractable = GetComponent<XRGrabInteractable>();
 
-         // 在脚本初始化时获取并存储模型的初始位置
-        initialPosition = this.transform.position;
-
+        // 记录假物品的初始位置和旋转
+        mopInitialPosition = fakeMop.transform.position;
+        pipeInitialPosition = fakePipe.transform.position;
+        mopInitialRotation = fakeMop.transform.rotation;
+        pipeInitialRotation = fakePipe.transform.rotation;
 
         if (grabInteractable != null)
         {
@@ -44,137 +35,70 @@ public class GrabMainItem : MonoBehaviour
         {
             Debug.LogError("XRGrabInteractable component is missing!");
         }
-    }
+
+        // 确保GameManager引用已设置
+        if (gameManager == null)
+        {
+            gameManager = GameManager.Instance; // 获取GameManager的实例
+        }
+        // 确保GameManager引用已设置
+
+        if (gameManager == null)
+        {
+            Debug.LogError("GameManager instance is not assigned or not found.");
+        }
+        }
 
     private void OnGrab(SelectEnterEventArgs args)
     {
-        if (isCoolingDown) return; // 冷却中，忽略操作
-
-        // 检测当前抓取的对象
-        GameObject selectedObject = args.interactableObject.transform.gameObject;
-
-        // 根据标签判断触发逻辑
-        if (selectedObject.CompareTag("Mop"))
+        // 处理假Mop或假Pipe的抓取
+        if (gameObject == fakeMop)
         {
-            selectedObject = realItem.gameObject;
-            HandleSelection(selectedObject, "Mop");
-            isHide =true;
-            //MopBeSelected = true;
-            GameManager.Instance.UpdatePlayerState(PlayerState.playerSelectMop);
+            HandleFakeItem(fakeMop, realMop, mopInitialPosition, mopInitialRotation, realPipe, fakePipe);
+            // 更新玩家状态为选择了Mop
+            gameManager.UpdatePlayerState(PlayerState.playerSelectMop);
         }
-        else if (selectedObject.CompareTag("Pipe"))
+        else if (gameObject == fakePipe)
         {
-            selectedObject = realItem.gameObject;
-            HandleSelection(selectedObject, "Pipe");
-            isHide =true;
-            //PipeBeSelected = true;
-            GameManager.Instance.UpdatePlayerState(PlayerState.playerSelectTubelight);
-        }
-
-        // 开始冷却
-        //StartCoroutine(CooldownCoroutine());
-    }
-
-
-    private void HandleSelection(GameObject selectedObject, string type)
-    {
-        // 如果有其他对象被选中，先取消其选中状态
-        if (currentlySelectedItem != null && currentlySelectedItem != this)
-        {
-            currentlySelectedItem.HandleUnselection();
-        }
-
-        // 获取 BaseMusicItem 脚本
-        currentMusicItem = selectedObject.GetComponent<BaseMusicItem>();
-
-        if (currentMusicItem == null)
-        {
-            Debug.LogWarning($"No BaseMusicItem script attached to {type}!");
-            return;
-        }
-
-        if (!isSelected)
-        {
-            // 调用 BeSelected
-            Debug.Log($"{type} selected!");
-            currentMusicItem.BeSelected();
-            isSelected = true;
-            currentlySelectedItem = this; // 更新当前选中项
-        }
-        else
-        {
-            HandleUnselection(); // 如果再次选中相同对象，则取消选中
+            HandleFakeItem(fakePipe, realPipe, pipeInitialPosition, pipeInitialRotation, realMop, fakeMop);
+            // 更新玩家状态为选择了Pipe
+            gameManager.UpdatePlayerState(PlayerState.playerSelectTubelight);
         }
     }
-    private void HandleUnselection()
-    {
-        if (isSelected && currentMusicItem != null)
-        {
-            Debug.Log($"Deselected {currentMusicItem.name}");
-            currentMusicItem.UnSelected();
-            isSelected = false;
 
-            if (currentlySelectedItem == this)
+    private void HandleFakeItem(GameObject fakeItem, BaseMusicItem newRealItem, Vector3 initialPosition, Quaternion initialRotation, BaseMusicItem currentRealItem, GameObject currentFakeItem)
+    {
+        // 取消当前激活的真物品
+        if (currentlySelectedRealItem != null && currentlySelectedRealItem != newRealItem)
+        {
+            currentlySelectedRealItem.UnSelected(); // 调用UnSelected方法
+            ResetFakeItem(currentFakeItem); // 重置当前假物品的位置和材质
+        }
+
+        // 激活新的真物品
+        fakeItem.GetComponent<Renderer>().enabled = false; // 隐藏假物品
+        fakeItem.transform.position = initialPosition; // 重置假物品位置
+        fakeItem.transform.rotation = initialRotation; // 重置假物品旋转
+
+        newRealItem.BeSelected(); // 调用BeSelected方法
+        currentlySelectedRealItem = newRealItem; // 更新当前激活的真物品
+    }
+
+    private void ResetFakeItem(GameObject fakeItem)
+    {
+        if (fakeItem != null)
+        {
+            fakeItem.GetComponent<Renderer>().enabled = true; // 显示假物品
+            if (fakeItem == fakeMop)
             {
-                currentlySelectedItem = null; // 重置当前选中项
+                fakeItem.transform.position = mopInitialPosition;
+                fakeItem.transform.rotation = mopInitialRotation; // 恢复初始旋转
+            }
+            else if (fakeItem == fakePipe)
+            {
+                fakeItem.transform.position = pipeInitialPosition;
+                fakeItem.transform.rotation = pipeInitialRotation; // 恢复初始旋转
             }
         }
     }
-
-    private IEnumerator CooldownCoroutine()
-    {
-        isCoolingDown = true;
-        yield return new WaitForSeconds(cooldown);
-        isCoolingDown = false;
-    }
-    public void TestBeSelected()
-    {
-        // 获取模型的 Renderer 组件
-        Renderer renderer = GetComponent<Renderer>();
-        if (renderer != null)
-        {
-            renderer.material.color = Color.yellow;
-            //renderer.enabled = false; // 隐藏模型
-            //this.transform.position = initialPosition;
-
-            Debug.Log($"{gameObject.name} color changed to yellow!");
-        }
-        else
-        {
-            Debug.LogWarning("Renderer component is missing!");
-        }
-    }
-
-    public void TestUnSelected()
-    {
-        // 获取模型的 Renderer 组件
-        Renderer renderer = GetComponent<Renderer>();
-        if (renderer != null)
-        {
-            // 修改材质的颜色为黑色
-            renderer.material.color = Color.black;
-            Debug.Log($"{gameObject.name} color changed to black!");
-        }
-        else
-        {
-            Debug.LogWarning("Renderer component is missing!");
-        }
-    }
-
-    void Update()
-    {
-        // 获取模型的 Renderer 组件
-        Renderer renderer = GetComponent<Renderer>();
-        //Renderer fakerenderer = fakeItem.GetComponent<Renderer>();
-        if (isHide){
-            this.gameObject.transform.position = initialPosition;
-            renderer.enabled = false; // 隐藏模型
-        }
-        if(!isHide){
-            renderer.enabled = true;
-        }
-
-        
-    }
-
 }

@@ -8658,8 +8658,8 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -8761,15 +8761,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e78b61493d11bd547a785cdf56ddc98c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentMusicItem: {fileID: 0}
-  realItem: {fileID: 7839389460268926320}
-  fakemop: {fileID: 0}
-  fakepipe: {fileID: 0}
-  MopBeSelected: 0
-  PipeBeSelected: 0
-  hidePoint: {fileID: 936578612}
-  gameManager: {fileID: 1746171311}
-  isHide: 0
+  realMop: {fileID: 7839389460268926320}
+  realPipe: {fileID: 651415328}
+  fakeMop: {fileID: 601707031}
+  fakePipe: {fileID: 1832284674}
 --- !u!1 &607164041
 GameObject:
   m_ObjectHideFlags: 0
@@ -12137,15 +12132,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e78b61493d11bd547a785cdf56ddc98c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentMusicItem: {fileID: 0}
-  realItem: {fileID: 0}
-  fakemop: {fileID: 0}
-  fakepipe: {fileID: 0}
-  MopBeSelected: 0
-  PipeBeSelected: 0
-  hidePoint: {fileID: 0}
-  gameManager: {fileID: 0}
-  isHide: 0
+  realMop: {fileID: 0}
+  realPipe: {fileID: 0}
+  fakeMop: {fileID: 0}
+  fakePipe: {fileID: 0}
 --- !u!114 &909763133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19480,7 +19470,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c1ed0865f0d2142a3cf6d56bb5cbc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 1081517372}
 --- !u!1 &1508293720
 GameObject:
   m_ObjectHideFlags: 0
@@ -24060,15 +24049,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e78b61493d11bd547a785cdf56ddc98c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentMusicItem: {fileID: 0}
-  realItem: {fileID: 651415328}
-  fakemop: {fileID: 0}
-  fakepipe: {fileID: 0}
-  MopBeSelected: 0
-  PipeBeSelected: 0
-  hidePoint: {fileID: 936578612}
-  gameManager: {fileID: 0}
-  isHide: 0
+  realMop: {fileID: 7839389460268926320}
+  realPipe: {fileID: 651415328}
+  fakeMop: {fileID: 601707031}
+  fakePipe: {fileID: 1832284674}
 --- !u!1 &1832698588
 GameObject:
   m_ObjectHideFlags: 0
