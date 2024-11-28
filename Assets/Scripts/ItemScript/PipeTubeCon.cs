@@ -81,12 +81,14 @@ private void SwingSound()
     swingAudioSource.volume = speedToVolume.Evaluate(normalizedSpeed);
     if (swingSpeed > swingPlaySpeed && !isSwingSoundPlaying)
     {
-        swingAudioSource.Play();
+        // swingAudioSource.Play();
+        AudioManager.Instance.PlaySound("SwingSound",speedToPitch.Evaluate(normalizedSpeed),speedToVolume.Evaluate(normalizedSpeed));
         isSwingSoundPlaying = true;
     }
     else if (swingSpeed <= swingStopSpeed && isSwingSoundPlaying)
     {
-        swingAudioSource.Stop();
+        // swingAudioSource.Stop();
+        AudioManager.Instance.StopSound("SwingSound");
         isSwingSoundPlaying = false;
     }
 }
@@ -97,22 +99,30 @@ private void BasicPipeSoundPlayer()
     
     if (pipe.getIsSelected())
     {
+        float basicVolume;
         //Debug.Log("被选择");
         float normalizedSpeed = Mathf.Clamp01(swingSpeed / maxSpeed); 
         //Debug.Log("标准速度："+normalizedSpeed);        
         if(normalizedSpeed!=0){
-            BasicPipeAudioSource.volume = Mathf.Lerp(basicMinVolume, basicMaxVolume, normalizedSpeed);
+             
+            basicVolume=Mathf.Lerp(basicMinVolume, basicMaxVolume, normalizedSpeed);
         }else{
-            BasicPipeAudioSource.volume = basicMinVolume;
+            
+            basicVolume= basicMinVolume;
         }
+
+
         if (!BasicPipeAudioSource.isPlaying)
         {
-            BasicPipeAudioSource.Play();
+            AudioManager.Instance.PlaySound("LightsaberWeng",1,basicVolume);
+            //BasicPipeAudioSource.Play();
+
         }
     }
     else
     {
         BasicPipeAudioSource.Stop();
+        AudioManager.Instance.StopSound("LightsaberWeng");
     }
 }
     private void OnCollisionEnter(Collision collision)

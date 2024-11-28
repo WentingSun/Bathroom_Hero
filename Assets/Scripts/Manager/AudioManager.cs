@@ -50,6 +50,15 @@ public class AudioManager : Singleton<AudioManager>
         sound.Source.Play();
     }
 
+    public void PlaySound(string soundName, float pitch, float volume){
+        PlaySound(soundName);
+        Debug.Log("pitch: "+ pitch);
+        Debug.Log("volume: "+ volume);
+    }
+    public void StopSound(string soundName){
+
+    }
+
 
     // Start is called before the first frame update
     void Start()
