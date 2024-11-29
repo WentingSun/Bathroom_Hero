@@ -23,6 +23,7 @@ public class SkullFollow : MonoBehaviour
     // Start is called before the first frame update
     [Header("自己设定的手柄偏移")]
     public Vector3 BothHandOffset;
+    public float ControllerOffset;
     void Start()
     {
         // 计算初始位置偏移量
@@ -48,7 +49,7 @@ public class SkullFollow : MonoBehaviour
         //Vector3 cameraPosition = cameraFollowTransform.position;
         Vector3 ContollerPosition=ControllerTransform.position;
         // 保持Cube的X轴位置不变，Y轴和Z轴位置跟随摄像机
-        SkullHand.position = new Vector3(ContollerPosition.x + HandOffset.x+BothHandOffset.x, ContollerPosition.y + HandOffset.y+BothHandOffset.y, ContollerPosition.z + HandOffset.z+BothHandOffset.z);
+        SkullHand.position = new Vector3(ContollerPosition.x + HandOffset.x+BothHandOffset.x, ContollerPosition.y + HandOffset.y+BothHandOffset.y, ContollerPosition.z + HandOffset.z+BothHandOffset.z)*ControllerOffset;
          // 获取摄像机的旋转
         Quaternion ContollerRotation = ControllerTransform.rotation;
 
