@@ -24,6 +24,8 @@ public class SkullFollow : MonoBehaviour
     [Header("自己设定的手柄偏移")]
     public Vector3 BothHandOffset;
     public float ControllerOffset;
+
+    private bool isRotated=false;
     void Start()
     {
         // 计算初始位置偏移量
@@ -43,6 +45,10 @@ public class SkullFollow : MonoBehaviour
         vrLControllerTransform=GameObject.Find("[Left Controller] Model Parent").transform;
         HandTransformFollow(skullLHand,vrLControllerTransform,leftHandOffset);
         HandTransformFollow(skullRHand,vrRControllerTransform,rightHandOffset);
+        // if(!isRotated){
+        //     transform.Rotate(0, 180, 0, Space.Self);
+        //     isRotated=true;
+        // }
     }
     void HandTransformFollow(Transform SkullHand,Transform ControllerTransform,Vector3 HandOffset){
         // 获取摄像机的当前位置
@@ -65,6 +71,8 @@ public class SkullFollow : MonoBehaviour
 
         // 应用到 Cube 的旋转
         SkullHand.rotation = finalRotation;
+
+        //SkullHand.Rotate(0, 180, 0, Space.Self);
     }
     void HeadTransformFollow(){
         // 获取摄像机的当前位置
@@ -86,6 +94,8 @@ public class SkullFollow : MonoBehaviour
 
         // 应用到 Cube 的旋转
         skullHead.rotation = finalRotation;
+
+        //skullHead.Rotate(0, 180, 0, Space.Self);
     }
      void BasicTransformFollow(){
         // 获取摄像机的当前位置
@@ -106,5 +116,7 @@ public class SkullFollow : MonoBehaviour
 
         // 应用到 Cube 的旋转
         skullBody.rotation = yRotation;
+
+        //skullBody.Rotate(0, 180, 0, Space.Self);
     }
 }
