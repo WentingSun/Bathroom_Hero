@@ -243,6 +243,18 @@ MonoBehaviour:
     pitch: 1
     Source: {fileID: 0}
     loop: 0
+  - Name: SwingSound
+    clip: {fileID: 8300000, guid: fec7694930bd270468cadf0f75d19999, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: LightsaberWeng
+    clip: {fileID: 8300000, guid: 61c2236f4e7ad3147ba38b24f2226fe1, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 1
   FixedSoundsList:
   - Name: ModeA00
     clip: {fileID: 8300000, guid: 59a71d5c5eb3c7a488d996ae9dbeaf0c, type: 3}
@@ -442,3 +454,16 @@ MonoBehaviour:
     pitch: 1
     Source: {fileID: 0}
     loop: 0
+  - Name: SwingSound
+    clip: {fileID: 8300000, guid: fec7694930bd270468cadf0f75d19999, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: LightsaberWeng
+    clip: {fileID: 8300000, guid: 61c2236f4e7ad3147ba38b24f2226fe1, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 1
+  currentSound: {fileID: 0}
