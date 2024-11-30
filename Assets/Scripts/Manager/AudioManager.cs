@@ -20,6 +20,7 @@ public class AudioManager : Singleton<AudioManager>
             sound.Source.clip = sound.clip;
             sound.Source.volume = sound.volumn;
             sound.Source.pitch = sound.pitch;
+            sound.Source.loop = sound.loop;
         }
     }
 

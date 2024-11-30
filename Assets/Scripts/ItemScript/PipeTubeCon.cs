@@ -81,13 +81,14 @@ private void SwingSound()
     swingAudioSource.volume = speedToVolume.Evaluate(normalizedSpeed);
     if (swingSpeed > swingPlaySpeed && !isSwingSoundPlaying)
     {
-        // swingAudioSource.Play();
+        //swingAudioSource.Play();
         AudioManager.Instance.PlaySound("SwingSound",speedToPitch.Evaluate(normalizedSpeed),speedToVolume.Evaluate(normalizedSpeed));
+
         isSwingSoundPlaying = true;
     }
     else if (swingSpeed <= swingStopSpeed && isSwingSoundPlaying)
     {
-        // swingAudioSource.Stop();
+        //swingAudioSource.Stop();
         AudioManager.Instance.StopSound("SwingSound");
         isSwingSoundPlaying = false;
     }
@@ -115,7 +116,8 @@ private void BasicPipeSoundPlayer()
         if (!BasicPipeAudioSource.isPlaying)
         {
             AudioManager.Instance.PlaySound("LightsaberWeng",1,basicVolume);
-            //BasicPipeAudioSource.Play();
+            BasicPipeAudioSource.volume=0;
+            BasicPipeAudioSource.Play();
 
         }
     }
