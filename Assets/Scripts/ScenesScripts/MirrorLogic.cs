@@ -19,8 +19,6 @@ public class MirrorLogic : MonoBehaviour
     [SerializeField] private Renderer renderplaneARenderer; // Add Renderer reference for renderplaneA
     [SerializeField] private Renderer renderplaneBRenderer; // Add Renderer reference for renderplaneB
     [SerializeField] private Renderer renderplaneCRenderer; // Add Renderer reference for renderplaneC
-
-    private Vector3 offsetB;
     void Awake()
     {
         GameManager.OnPlayerStateChage += ChangeScenesOnPlayerStateChange;
@@ -38,8 +36,6 @@ public class MirrorLogic : MonoBehaviour
         ToggleRenderPlaneVisibility(renderplaneARenderer);
         ToggleRenderPlaneUnVisibility(renderplaneBRenderer);
         ToggleRenderPlaneUnVisibility(renderplaneCRenderer);
-
-        //offsetB=CameraA.transform.position - CameraB.transform.position;
     }
 
     public void ChangeScenesOnPlayerStateChange(PlayerState state)
@@ -99,28 +95,12 @@ public class MirrorLogic : MonoBehaviour
         {
             // 计算 CameraA 和 renderplaneB 之间的相对位置差
             Vector3 offset = CameraA.transform.position - renderplaneB.transform.position;
-            
+
             // 更新 CameraB 的位置，使其与 transformdoorB 保持正确的相对位置
             CameraB.transform.position = transformdoorB.transform.position + offset;
-            
+
             // 同步 CameraB 的旋转
-            //CameraB.transform.rotation = CameraA.transform.rotation;
-            //
-            // 获取摄像机的旋转
-            Quaternion Rotation = CameraA.transform.rotation;
-
-            // 提取摄像机的欧拉角
-            Vector3 EulerAngles = Rotation.eulerAngles;
-
-            // 分离 Y 轴旋转（反向）和 X-Z 平面旋转（同步）
-            Quaternion yRotation = Quaternion.Euler(0, -EulerAngles.y, 0); // 绕Y 轴旋转
-            Quaternion xzRotation = Quaternion.Euler(EulerAngles.x, 0, EulerAngles.z); // X 和 Z 不变
-
-            // 组合旋转
-            Quaternion finalRotation = yRotation * xzRotation;
-
-            // 应用到 Cube 的旋转
-            CameraB.transform.rotation = finalRotation;
+            CameraB.transform.rotation = CameraA.transform.rotation;
         }
 
         // 确保 CameraB 的位置与 CameraA 同步
@@ -133,23 +113,7 @@ public class MirrorLogic : MonoBehaviour
             CameraC.transform.position = transformdoorC.transform.position + offset;
 
             // 同步 CameraB 的旋转
-            //CameraC.transform.rotation = CameraA.transform.rotation;
-
-            // 获取摄像机的旋转
-            // Quaternion Rotation = CameraA.transform.rotation;
-
-            // // 提取摄像机的欧拉角
-            // Vector3 EulerAngles = Rotation.eulerAngles;
-
-            // // 分离 Y 轴旋转（反向）和 X-Z 平面旋转（同步）
-            // Quaternion yRotation = Quaternion.Euler(0, -EulerAngles.y, 0); // 绕Y 轴旋转
-            // Quaternion xzRotation = Quaternion.Euler(EulerAngles.x, 0, EulerAngles.z); // X 和 Z 不变
-
-            // // 组合旋转
-            // Quaternion finalRotation = yRotation * xzRotation;
-
-            // // 应用到 Cube 的旋转
-            // CameraC.transform.rotation = finalRotation;
+            CameraC.transform.rotation = CameraA.transform.rotation;
         }
         
     }
