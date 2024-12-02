@@ -32,6 +32,7 @@ public class AudioManager : Singleton<AudioManager>
             sound.Source.clip = sound.clip;
             sound.Source.volume = sound.volumn;
             sound.Source.pitch = sound.pitch;
+            sound.Source.loop = sound.loop;
         }
 
         foreach (var sound in FixedSoundsList)
@@ -40,6 +41,7 @@ public class AudioManager : Singleton<AudioManager>
             sound.Source.clip = sound.clip;
             sound.Source.volume = sound.volumn;
             sound.Source.pitch = sound.pitch;
+            sound.Source.loop = sound.loop;
         }
     }
 
@@ -151,6 +153,7 @@ public class AudioManager : Singleton<AudioManager>
             sound.pitch = pitch;
             sound.Source.volume = volume;
             sound.volumn = volume;
+            sound.Source.Play();
         }
 
     }
