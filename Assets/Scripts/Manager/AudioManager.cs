@@ -11,8 +11,8 @@ public class AudioManager : Singleton<AudioManager>
     public Sound[] FixedSoundsList;
 
     [SerializeField] private PlayerState watchingState;
+    [SerializeField] private PlayerState selectedItem;
 
-    [SerializeField] private SelectedItem selItem;
 
     public AudioMixerSnapshot bathroom;
 
@@ -58,7 +58,8 @@ public class AudioManager : Singleton<AudioManager>
     {
         if(playerState == PlayerState.playerWatchMirror || playerState == PlayerState.playerDontWatchMirror){
             watchingState = playerState;
-            //selItem = selectedItem;
+        }else if(playerState == PlayerState.playerSelectTubelight || playerState == PlayerState.playerSelectMop){
+            selectedItem = playerState;
         }
     }
 
@@ -67,14 +68,14 @@ public class AudioManager : Singleton<AudioManager>
         Sound sound = Array.Find(Sounds, sound => sound.Name == soundName);
         if(watchingState == PlayerState.playerWatchMirror){
 
-            /*if(selItem == SelectedItem.Mop)
+            if(selectedItem == PlayerState.playerSelectMop)
             {
                 concert.TransitionTo(0.5f);
             }
-            else if(selItem == SelectedItem.Tubelight)
+            else if(selectedItem == PlayerState.playerSelectTubelight)
             {
                 desert.TransitionTo(0.5f);
-            }*/
+            }
             sound = Array.Find(Sounds, sound => sound.Name == soundName);
 
 
