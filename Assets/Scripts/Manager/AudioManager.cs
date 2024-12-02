@@ -61,13 +61,10 @@ public class AudioManager : Singleton<AudioManager>
         }else if(playerState == PlayerState.playerSelectTubelight || playerState == PlayerState.playerSelectMop){
             selectedItem = playerState;
         }
-    }
 
-    public void PlaySound(string soundName)
-    {
-        Sound sound = Array.Find(Sounds, sound => sound.Name == soundName);
-        if(watchingState == PlayerState.playerWatchMirror){
-
+        if (watchingState == PlayerState.playerWatchMirror)
+        {
+            //add dream sound
             if(selectedItem == PlayerState.playerSelectMop)
             {
                 concert.TransitionTo(0.5f);
@@ -76,6 +73,23 @@ public class AudioManager : Singleton<AudioManager>
             {
                 desert.TransitionTo(0.5f);
             }
+            else{
+                bathroom.TransitionTo(0.5f);
+            }
+        }
+        else
+        {
+            bathroom.TransitionTo(0.5f);
+        }
+
+    }
+
+    public void PlaySound(string soundName)
+    {
+        Sound sound = Array.Find(Sounds, sound => sound.Name == soundName);
+        if(watchingState == PlayerState.playerWatchMirror){
+
+            
             sound = Array.Find(Sounds, sound => sound.Name == soundName);
 
 
