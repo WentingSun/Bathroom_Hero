@@ -58,19 +58,21 @@ public class AudioManager : Singleton<AudioManager>
     {
         if(playerState == PlayerState.playerWatchMirror || playerState == PlayerState.playerDontWatchMirror){
             watchingState = playerState;
-        }else if(playerState == PlayerState.playerSelectTubelight || playerState == PlayerState.playerSelectMop){
+        }else if(playerState == PlayerState.playerSelectTubelight || playerState == PlayerState.playerSelectMop || playerState == PlayerState.PlayerSelectNothing){
             selectedItem = playerState;
         }
 
         if (watchingState == PlayerState.playerWatchMirror)
         {
-            //add dream sound
+            Sound dreamsound = Array.Find(Sounds, sound => sound.Name == "Dream_World");
             if(selectedItem == PlayerState.playerSelectMop)
             {
+                dreamsound.Source.Play();
                 concert.TransitionTo(0.5f);
             }
             else if(selectedItem == PlayerState.playerSelectTubelight)
             {
+                dreamsound.Source.Play();
                 desert.TransitionTo(0.5f);
             }
             else{
