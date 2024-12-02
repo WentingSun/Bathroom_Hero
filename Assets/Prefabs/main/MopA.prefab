@@ -119,8 +119,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5518400423892803354}
-  - component: {fileID: 2847440715024791781}
   - component: {fileID: 1487709108285467660}
+  - component: {fileID: 5773798650180345098}
   m_Layer: 0
   m_Name: RIghthandCollider
   m_TagString: Untagged
@@ -138,32 +138,11 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2.671, y: 0, z: -0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.61109, y: 0.61109, z: 0.61109}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8776472290533322382}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2847440715024791781
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7186839536437676091}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1487709108285467660
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -191,6 +170,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &5773798650180345098
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7186839536437676091}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7966875117524328463
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,8 +218,8 @@ Transform:
   m_GameObject: {fileID: 7966875117524328463}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.156, y: 0, z: -0}
-  m_LocalScale: {x: 0.81438, y: 0.81438, z: 0.81438}
+  m_LocalPosition: {x: 0.905, y: -0, z: -0}
+  m_LocalScale: {x: 0.54084605, y: 0.54084605, z: 0.54084605}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8776472290533322382}
@@ -269,6 +269,8 @@ MonoBehaviour:
   ModeCRange: 10000
   soundIndex: 0
   indexRange: 11
+  initPosition: {x: 0, y: 0, z: 0}
+  initRotation: {x: 0, y: 0, z: 0, w: 0}
   rotationOffset: {x: 0, y: 90, z: 0}
 --- !u!1 &8315757978351644990
 GameObject:
