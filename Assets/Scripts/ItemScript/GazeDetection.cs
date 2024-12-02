@@ -29,7 +29,7 @@ public class GazeDetection : MonoBehaviour
         if (newState != currentState)
         {
             currentState = newState; // 更新当前状态
-           // GameManager.Instance.UpdatePlayerState(currentState); // 通知 GameManager 更新状态
+            GameManager.Instance.UpdatePlayerState(currentState); // 通知 GameManager 更新状态
 
             // 日志输出用于调试
             Debug.Log(newState == PlayerState.playerWatchMirror 
