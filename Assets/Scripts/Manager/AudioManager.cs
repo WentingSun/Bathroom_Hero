@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using System;
 
 public class AudioManager : Singleton<AudioManager>
@@ -8,12 +9,31 @@ public class AudioManager : Singleton<AudioManager>
 
     public Sound[] Sounds;
     public Sound[] FixedSoundsList;
+
+    [SerializeField] private PlayerState watchingState;
+
+    [SerializeField] private SelectedItem selItem;
+
+    public AudioMixerSnapshot bathroom;
+
+    public AudioMixerSnapshot desert;
+
+    public AudioMixerSnapshot concert;
+
     protected override void Awake()
     {
         base.Awake();
         GameManager.OnGameStateChange += audioManagerOnGameStateChange;
         GameManager.OnPlayerStateChage += audioManagerOnPlayerStateChange;
         foreach (Sound sound in Sounds)
+        {
+            sound.Source = gameObject.AddComponent<AudioSource>();
+            sound.Source.clip = sound.clip;
+            sound.Source.volume = sound.volumn;
+            sound.Source.pitch = sound.pitch;
+        }
+
+        foreach (var sound in FixedSoundsList)
         {
             sound.Source = gameObject.AddComponent<AudioSource>();
             sound.Source.clip = sound.clip;
@@ -34,14 +54,34 @@ public class AudioManager : Singleton<AudioManager>
         // throw new System.NotImplementedException();
     }
 
-    private void audioManagerOnPlayerStateChange(PlayerState playerState)
+    private void audioManagerOnPlayerStateChange(PlayerState playerState /*SelectedItem selectedItem*/)
     {
-        // throw new System.NotImplementedException();
+        if(playerState == PlayerState.playerWatchMirror || playerState == PlayerState.playerDontWatchMirror){
+            watchingState = playerState;
+            //selItem = selectedItem;
+        }
     }
 
     public void PlaySound(string soundName)
     {
         Sound sound = Array.Find(Sounds, sound => sound.Name == soundName);
+        if(watchingState == PlayerState.playerWatchMirror){
+
+            /*if(selItem == SelectedItem.Mop)
+            {
+                concert.TransitionTo(0.5f);
+            }
+            else if(selItem == SelectedItem.Tubelight)
+            {
+                desert.TransitionTo(0.5f);
+            }*/
+            sound = Array.Find(Sounds, sound => sound.Name == soundName);
+
+
+        }else if(watchingState == PlayerState.playerDontWatchMirror){
+            sound = Array.Find(FixedSoundsList, sound => sound.Name == soundName);
+            Debug.Log("fixedSound.");
+        }
         if (sound == null)
         {
             Debug.LogWarning("Audio name:" + soundName + "not found.");
@@ -50,16 +90,13 @@ public class AudioManager : Singleton<AudioManager>
         sound.Source.Play();
     }
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
+    public void PlaySound(string soundName, float pitch, float volume){
+        PlaySound(soundName);
+        Debug.Log("pitch: "+ pitch);
+        Debug.Log("volume: "+ volume);
+    }
+    public void StopSound(string soundName){
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }
