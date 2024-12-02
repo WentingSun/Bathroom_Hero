@@ -28,6 +28,12 @@ public class MopGuitar : BaseMusicItem
         soundIndex = (soundIndex + 1) % indexRange;
     }
 
+    public void SimulateTriggerEnter(){
+        Debug.Log("onTriggerEnter");
+        AudioManager.Instance.PlaySound(ToString(guitarMode, soundIndex));
+        soundIndex = (soundIndex + 1) % indexRange;
+    }
+
     public override void BeSelected()
     {
         initPosition = Mop.transform.position;
