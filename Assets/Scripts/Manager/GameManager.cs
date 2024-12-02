@@ -15,6 +15,7 @@ public class GameManager : Singleton<GameManager>
 
     public static event Action<GameState> OnGameStateChange;
     public static event Action<PlayerState> OnPlayerStateChage;
+    private PlayerState playerState = PlayerState.PlayerSelectNothing;
 
     #region GameState
     public void UpdateGameState(GameState newState)

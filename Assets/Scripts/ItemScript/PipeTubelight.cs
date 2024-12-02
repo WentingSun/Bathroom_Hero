@@ -17,7 +17,8 @@ public class PipeTubelight : BaseMusicItem
     private Quaternion initialPipeRotation;
     private GameObject pipe;
     [SerializeField] public Vector3 offset;
-    [SerializeField] public Vector3 offsetRotation;
+    //[SerializeField] public Vector3 offsetRotation;
+    [SerializeField] public Quaternion offsetRotation;
     
     Transform pivotTransform;
 
@@ -43,8 +44,8 @@ public class PipeTubelight : BaseMusicItem
         if (isSelected)
         {
             Pivot.position = input.GetLeftHandPosition().position + offset;
-            Pivot.rotation = input.GetLeftHandPosition().rotation *  Quaternion.Euler(offsetRotation);
-            
+            //Pivot.rotation = input.GetLeftHandPosition().rotation *  Quaternion.Euler(offsetRotation);
+            Pivot.rotation = input.GetLeftHandPosition().rotation *offsetRotation;
             
         }
 

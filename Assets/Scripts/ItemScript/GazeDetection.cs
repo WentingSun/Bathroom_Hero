@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class GazeDetection : MonoBehaviour
 {
-    // Start is called before the first frame update
     public Transform mirror; // 镜子的Transform对象
-    public GameManager gameManager; // 引用 GameManager
     public float gazeThreshold = 0.9f; // 点积阈值，表示视线与镜子方向的接近程度
+
+    private PlayerState currentState = PlayerState.PlayerSelectNothing; // 当前玩家状态，初始为未定义状态
 
     void Update()
     {
@@ -19,16 +19,27 @@ public class GazeDetection : MonoBehaviour
 
         // 使用点积来判断视线方向是否接近镜子
         float dotProduct = Vector3.Dot(headDirection, mirrorDirection);
+        
 
-        if (dotProduct > gazeThreshold)
+        // 根据点积计算是否看向镜子
+        PlayerState newState = dotProduct > gazeThreshold
+            ? PlayerState.playerWatchMirror
+            : PlayerState.playerDontWatchMirror;
+
+        //  Debug.Log(Vector3.Dot(headDirection, mirrorDirection));
+        //  Debug.Log(headDirection);
+
+        // 只有当状态发生变化时才更新状态
+        if (newState != currentState)
         {
-            // Debug.Log("用户正在看向镜子");
-            // GameManager.Instance.UpdatePlayerState(PlayerState.playerWatchMirror);
-        }
-        else
-        {
-            // Debug.Log("用户没有看向镜子");
-            // GameManager.Instance.UpdatePlayerState(PlayerState.playerDontWatchMirror);
+            currentState = newState; // 更新当前状态
+            GameManager.Instance.UpdatePlayerState(currentState); // 通知 GameManager 更新状态
+           
+
+            // 日志输出用于调试
+            Debug.Log(newState == PlayerState.playerWatchMirror 
+                ? "用户正在看向镜子" 
+                : "用户没有看向镜子");
         }
     }
 }
