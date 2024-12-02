@@ -113,67 +113,67 @@ MonoBehaviour:
     loop: 0
   - Name: ModeB00
     clip: {fileID: 8300000, guid: ded004abd7d225444827d2730aa152d4, type: 3}
-    volumn: 0.689
+    volumn: 3
     pitch: 1
     Source: {fileID: 0}
     loop: 0
   - Name: ModeB01
     clip: {fileID: 8300000, guid: 810c5ff65a46b5c45bd3046378a5c4e9, type: 3}
-    volumn: 0.689
+    volumn: 3
     pitch: 1
     Source: {fileID: 0}
     loop: 0
   - Name: ModeB02
     clip: {fileID: 8300000, guid: 9ebc68e2c7cbda34d9892f4d86e91411, type: 3}
-    volumn: 0.689
+    volumn: 3
     pitch: 1
     Source: {fileID: 0}
     loop: 0
   - Name: ModeB03
     clip: {fileID: 8300000, guid: 896a7b5111fef0848acaffeacd8eab3b, type: 3}
-    volumn: 0.689
+    volumn: 3
     pitch: 1
     Source: {fileID: 0}
     loop: 0
   - Name: ModeB04
     clip: {fileID: 8300000, guid: ccca0e2241fff8e469a38b00ba72fe0a, type: 3}
-    volumn: 0.689
+    volumn: 3
     pitch: 1
     Source: {fileID: 0}
     loop: 0
   - Name: ModeB05
     clip: {fileID: 8300000, guid: f10452bb0f5a98b4399dbddfd7fcc613, type: 3}
-    volumn: 0.689
+    volumn: 3
     pitch: 1
     Source: {fileID: 0}
     loop: 0
   - Name: ModeB06
     clip: {fileID: 8300000, guid: e03352a402b3fb04c81525231b0528f1, type: 3}
-    volumn: 0.689
+    volumn: 3
     pitch: 1
     Source: {fileID: 0}
     loop: 0
   - Name: ModeB07
     clip: {fileID: 8300000, guid: 50e24fcd6fbb99540a6f85b156fd0f8f, type: 3}
-    volumn: 0.689
+    volumn: 3
     pitch: 1
     Source: {fileID: 0}
     loop: 0
   - Name: ModeB08
     clip: {fileID: 8300000, guid: 9e17e69235115d74a91e251369b953b5, type: 3}
-    volumn: 0.689
+    volumn: 3
     pitch: 1
     Source: {fileID: 0}
     loop: 0
   - Name: ModeB09
     clip: {fileID: 8300000, guid: ed34d74b7347dfa49916cf51bec4679c, type: 3}
-    volumn: 0.689
+    volumn: 3
     pitch: 1
     Source: {fileID: 0}
     loop: 0
   - Name: ModeB10
     clip: {fileID: 8300000, guid: 23bb687d2699c594b8ababa82c7c5bb6, type: 3}
-    volumn: 0.689
+    volumn: 3
     pitch: 1
     Source: {fileID: 0}
     loop: 0
@@ -243,6 +243,18 @@ MonoBehaviour:
     pitch: 1
     Source: {fileID: 0}
     loop: 0
+  - Name: SwingSound
+    clip: {fileID: 8300000, guid: fec7694930bd270468cadf0f75d19999, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: LightsaberWeng
+    clip: {fileID: 8300000, guid: 61c2236f4e7ad3147ba38b24f2226fe1, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 1
   FixedSoundsList:
   - Name: ModeA00
     clip: {fileID: 8300000, guid: 59a71d5c5eb3c7a488d996ae9dbeaf0c, type: 3}
@@ -442,3 +454,15 @@ MonoBehaviour:
     pitch: 1
     Source: {fileID: 0}
     loop: 0
+  - Name: SwingSound
+    clip: {fileID: 8300000, guid: fec7694930bd270468cadf0f75d19999, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: LightsaberWeng
+    clip: {fileID: 8300000, guid: 61c2236f4e7ad3147ba38b24f2226fe1, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 1
