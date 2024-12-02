@@ -13,6 +13,7 @@ public class AudioManager : Singleton<AudioManager>
     [SerializeField] private PlayerState watchingState;
     [SerializeField] private PlayerState selectedItem;
 
+    [SerializeField] private Sound currentSound;
 
     public AudioMixerSnapshot bathroom;
 
@@ -31,6 +32,7 @@ public class AudioManager : Singleton<AudioManager>
             sound.Source.clip = sound.clip;
             sound.Source.volume = sound.volumn;
             sound.Source.pitch = sound.pitch;
+            sound.Source.loop = sound.loop;
         }
 
         foreach (var sound in FixedSoundsList)
@@ -39,6 +41,7 @@ public class AudioManager : Singleton<AudioManager>
             sound.Source.clip = sound.clip;
             sound.Source.volume = sound.volumn;
             sound.Source.pitch = sound.pitch;
+            sound.Source.loop = sound.loop;
         }
     }
 
@@ -56,7 +59,8 @@ public class AudioManager : Singleton<AudioManager>
 
     private void audioManagerOnPlayerStateChange(PlayerState playerState /*SelectedItem selectedItem*/)
     {
-        if(playerState == PlayerState.playerWatchMirror || playerState == PlayerState.playerDontWatchMirror){
+        if (playerState == PlayerState.playerWatchMirror || playerState == PlayerState.playerDontWatchMirror)
+        {
             watchingState = playerState;
         }else if(playerState == PlayerState.playerSelectTubelight || playerState == PlayerState.playerSelectMop || playerState == PlayerState.PlayerSelectNothing){
             selectedItem = playerState;
@@ -70,12 +74,13 @@ public class AudioManager : Singleton<AudioManager>
                 dreamsound.Source.Play();
                 concert.TransitionTo(0.5f);
             }
-            else if(selectedItem == PlayerState.playerSelectTubelight)
+            else if (selectedItem == PlayerState.playerSelectTubelight)
             {
                 dreamsound.Source.Play();
                 desert.TransitionTo(0.5f);
             }
-            else{
+            else
+            {
                 bathroom.TransitionTo(0.5f);
             }
         }
@@ -86,34 +91,82 @@ public class AudioManager : Singleton<AudioManager>
 
     }
 
-    public void PlaySound(string soundName)
+    private IEnumerator PlayClip(Sound sound)
     {
-        Sound sound = Array.Find(Sounds, sound => sound.Name == soundName);
-        if(watchingState == PlayerState.playerWatchMirror){
+        currentSound = sound;
+        sound.Source.Play();
+        yield return null;
+    }
 
-            
-            sound = Array.Find(Sounds, sound => sound.Name == soundName);
 
-
-        }else if(watchingState == PlayerState.playerDontWatchMirror){
-            sound = Array.Find(FixedSoundsList, sound => sound.Name == soundName);
-            Debug.Log("fixedSound.");
+    private Sound FindSound(string soundName)
+    {
+        Sound result;
+        if (watchingState == PlayerState.playerWatchMirror)
+        {
+            result = Array.Find(Sounds, sound => sound.Name == soundName);
         }
-        if (sound == null)
+        else if (watchingState == PlayerState.playerDontWatchMirror)
+        {
+            result = Array.Find(FixedSoundsList, sound => sound.Name == soundName);
+        }
+        else
+        {
+            result = null;
+        }
+        if (result == null)
         {
             Debug.LogWarning("Audio name:" + soundName + "not found.");
-            return;
         }
-        sound.Source.Play();
+        return result;
     }
 
-    public void PlaySound(string soundName, float pitch, float volume){
-        PlaySound(soundName);
-        Debug.Log("pitch: "+ pitch);
-        Debug.Log("volume: "+ volume);
-    }
-    public void StopSound(string soundName){
+    public void PlaySound(string soundName)
+    {
+        Sound sound = FindSound(soundName);
 
+        if (currentSound.Source == null)
+        {
+            StartCoroutine(PlayClip(sound));
+        }
+        else
+        {
+            currentSound.Source.Stop();
+            StartCoroutine(PlayClip(sound));
+        }
+
+    }
+
+    public void PlaySound(string soundName, float pitch, float volume)
+    {
+        Sound sound = FindSound(soundName);
+        if (currentSound.Name == soundName)
+        {
+            currentSound.Source.pitch = pitch;
+            currentSound.pitch = pitch;
+            currentSound.Source.volume = volume;
+            currentSound.volumn = volume;
+        }
+        else
+        {
+            sound.Source.pitch = pitch;
+            sound.pitch = pitch;
+            sound.Source.volume = volume;
+            sound.volumn = volume;
+            sound.Source.Play();
+        }
+
+    }
+
+
+    public void StopSound(string soundName)
+    {
+        if(currentSound.Name == soundName){
+            currentSound.Source.Stop();
+        }else{
+            Sound sound = FindSound(soundName);
+            sound.Source.Stop();
+        }
     }
 
 }
