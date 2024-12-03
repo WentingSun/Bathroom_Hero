@@ -138,7 +138,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2.671, y: 0, z: -0}
-  m_LocalScale: {x: 0.61109, y: 0.61109, z: 0.61109}
+  m_LocalScale: {x: 0.41123912, y: 0.41123912, z: 0.41123912}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8776472290533322382}
@@ -185,7 +185,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -218,8 +218,8 @@ Transform:
   m_GameObject: {fileID: 7966875117524328463}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.905, y: -0, z: -0}
-  m_LocalScale: {x: 0.54084605, y: 0.54084605, z: 0.54084605}
+  m_LocalPosition: {x: 0.39, y: 0, z: 0}
+  m_LocalScale: {x: 1.1074566, y: 1.1074566, z: 1.1074566}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8776472290533322382}
@@ -260,12 +260,12 @@ MonoBehaviour:
   beSelected: 0
   input: {fileID: 0}
   Mop: {fileID: 8776472290533322382}
-  FixPoint: {fileID: 7906103627864722749}
+  FixPoint: {fileID: 0}
   rightHandCollider: {fileID: 5518400423892803354}
   isSelected: 0
   guitarMode: 0
-  ModeARange: 1.5
-  ModeBRange: 2.4
+  ModeARange: 0.2
+  ModeBRange: 0.45
   ModeCRange: 10000
   soundIndex: 0
   indexRange: 11
@@ -296,7 +296,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8315757978351644990}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.27027377, z: -0, w: 0.9627835}
+  m_LocalRotation: {x: 0, y: -0.27027273, z: 0, w: 0.9627838}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.31057, y: 0.31057, z: 0.31057}
   m_ConstrainProportionsScale: 0

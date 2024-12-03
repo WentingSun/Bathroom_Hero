@@ -32,6 +32,7 @@ public class AudioManager : Singleton<AudioManager>
             sound.Source.clip = sound.clip;
             sound.Source.volume = sound.volumn;
             sound.Source.pitch = sound.pitch;
+            sound.Source.outputAudioMixerGroup = sound.audioMixerGroup;
             sound.Source.loop = sound.loop;
         }
 
@@ -41,6 +42,7 @@ public class AudioManager : Singleton<AudioManager>
             sound.Source.clip = sound.clip;
             sound.Source.volume = sound.volumn;
             sound.Source.pitch = sound.pitch;
+            sound.Source.outputAudioMixerGroup = sound.audioMixerGroup;
             sound.Source.loop = sound.loop;
         }
     }
@@ -104,13 +106,13 @@ public class AudioManager : Singleton<AudioManager>
             Sound dreamsound = Array.Find(Sounds, sound => sound.Name == "Dream_World");
             if (selectedItem == PlayerState.playerSelectMop)
             {
-                // dreamsound.Source?.Play();
-                concert.TransitionTo(0.5f);
+                dreamsound.Source.Play();
+                concert.TransitionTo(2.0f);
             }
             else if (selectedItem == PlayerState.playerSelectTubelight)
             {
-                // dreamsound.Source?.Play();
-                desert.TransitionTo(0.5f);
+                dreamsound.Source.Play();
+                desert.TransitionTo(2.0f);
             }
             else
             {
