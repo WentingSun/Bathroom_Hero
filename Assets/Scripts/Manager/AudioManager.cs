@@ -69,12 +69,12 @@ public class AudioManager : Singleton<AudioManager>
         }
         if(watchingState== PlayerState.playerDontWatchMirror){
             foreach(string soundName in currentPlayingSoundName){
-                Sound sound = Array.Find(Sounds, sound => sound.Name == soundName);
+                Sound sound = Array.Find(FixedSoundsList, sound => sound.Name == soundName);
                 sound.Source.Play();
             }
         }else if(watchingState == PlayerState.playerWatchMirror){
             foreach(string soundName in currentPlayingSoundName){
-                Sound sound = Array.Find(FixedSoundsList, sound => sound.Name == soundName);
+                Sound sound = Array.Find(Sounds, sound => sound.Name == soundName);
                 sound.Source.Play();
             }
         }
