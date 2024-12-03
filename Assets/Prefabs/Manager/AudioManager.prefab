@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3511600732275023325
+--- !u!1 &5914484379072502624
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6695916401442271957}
-  - component: {fileID: 8415272790079195829}
+  - component: {fileID: 1969080736657656658}
+  - component: {fileID: 2571358505041276513}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6695916401442271957
+--- !u!4 &1969080736657656658
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3511600732275023325}
+  m_GameObject: {fileID: 5914484379072502624}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,13 +32,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8415272790079195829
+--- !u!114 &2571358505041276513
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3511600732275023325}
+  m_GameObject: {fileID: 5914484379072502624}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b8a122c3527a2441a74f5d741de9321, type: 3}
@@ -113,67 +113,67 @@ MonoBehaviour:
     loop: 0
   - Name: ModeB00
     clip: {fileID: 8300000, guid: ded004abd7d225444827d2730aa152d4, type: 3}
-    volumn: 3
+    volumn: 0.689
     pitch: 1
     Source: {fileID: 0}
     loop: 0
   - Name: ModeB01
     clip: {fileID: 8300000, guid: 810c5ff65a46b5c45bd3046378a5c4e9, type: 3}
-    volumn: 3
+    volumn: 0.689
     pitch: 1
     Source: {fileID: 0}
     loop: 0
   - Name: ModeB02
     clip: {fileID: 8300000, guid: 9ebc68e2c7cbda34d9892f4d86e91411, type: 3}
-    volumn: 3
+    volumn: 0.689
     pitch: 1
     Source: {fileID: 0}
     loop: 0
   - Name: ModeB03
     clip: {fileID: 8300000, guid: 896a7b5111fef0848acaffeacd8eab3b, type: 3}
-    volumn: 3
+    volumn: 0.689
     pitch: 1
     Source: {fileID: 0}
     loop: 0
   - Name: ModeB04
     clip: {fileID: 8300000, guid: ccca0e2241fff8e469a38b00ba72fe0a, type: 3}
-    volumn: 3
+    volumn: 0.689
     pitch: 1
     Source: {fileID: 0}
     loop: 0
   - Name: ModeB05
     clip: {fileID: 8300000, guid: f10452bb0f5a98b4399dbddfd7fcc613, type: 3}
-    volumn: 3
+    volumn: 0.689
     pitch: 1
     Source: {fileID: 0}
     loop: 0
   - Name: ModeB06
     clip: {fileID: 8300000, guid: e03352a402b3fb04c81525231b0528f1, type: 3}
-    volumn: 3
+    volumn: 0.689
     pitch: 1
     Source: {fileID: 0}
     loop: 0
   - Name: ModeB07
     clip: {fileID: 8300000, guid: 50e24fcd6fbb99540a6f85b156fd0f8f, type: 3}
-    volumn: 3
+    volumn: 0.689
     pitch: 1
     Source: {fileID: 0}
     loop: 0
   - Name: ModeB08
     clip: {fileID: 8300000, guid: 9e17e69235115d74a91e251369b953b5, type: 3}
-    volumn: 3
+    volumn: 0.689
     pitch: 1
     Source: {fileID: 0}
     loop: 0
   - Name: ModeB09
     clip: {fileID: 8300000, guid: ed34d74b7347dfa49916cf51bec4679c, type: 3}
-    volumn: 3
+    volumn: 0.689
     pitch: 1
     Source: {fileID: 0}
     loop: 0
   - Name: ModeB10
     clip: {fileID: 8300000, guid: 23bb687d2699c594b8ababa82c7c5bb6, type: 3}
-    volumn: 3
+    volumn: 0.689
     pitch: 1
     Source: {fileID: 0}
     loop: 0
@@ -466,3 +466,15 @@ MonoBehaviour:
     pitch: 1
     Source: {fileID: 0}
     loop: 1
+  watchingState: 3
+  selectedItem: 0
+  currentSound:
+    Name: 
+    clip: {fileID: 0}
+    volumn: 0
+    pitch: 0
+    Source: {fileID: 0}
+    loop: 0
+  bathroom: {fileID: 941197610493249552, guid: 4a4f9c2f28b9c4500bd1ef340ffdd3f4, type: 2}
+  desert: {fileID: -1851882793987460706, guid: 4a4f9c2f28b9c4500bd1ef340ffdd3f4, type: 2}
+  concert: {fileID: 24500006, guid: 4a4f9c2f28b9c4500bd1ef340ffdd3f4, type: 2}

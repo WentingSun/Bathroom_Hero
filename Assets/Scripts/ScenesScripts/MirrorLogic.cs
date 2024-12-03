@@ -77,7 +77,7 @@ public class MirrorLogic : MonoBehaviour
                 break;
 
             default:
-                Debug.LogWarning("Unhandled PlayerState: " + state);
+                // Debug.LogWarning("Unhandled PlayerState: " + state);
                 
                 //在此添加代码
                 break;
