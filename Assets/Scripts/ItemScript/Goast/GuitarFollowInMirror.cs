@@ -11,6 +11,8 @@ public class GuitarFollowInMirror : MonoBehaviour
     public Transform skullLeftHand;
     public Transform skullRightHand;
 
+    public Transform skullHead;
+
     private void Start()
     {
         StartCoroutine(UpdatePositionAndRotation());
@@ -20,17 +22,25 @@ public class GuitarFollowInMirror : MonoBehaviour
     {
         while (true)
         {
-            // 将 Mop 位置同步到 FixPoint
-            Mop.position = FixPoint.position;
-
-            // 设置 Mop 的朝向为左手位置
             Vector3 direction = skullLeftHand.position - FixPoint.position;
             Mop.rotation = Quaternion.LookRotation(direction) * Quaternion.Euler(rotationOffset);
-
-            // 同步右手碰撞器的位置
-            rightHandCollider.position = skullRightHand.position;
-
+            Mop.position = FixPoint.position;
             yield return null;
+            // // 将 Mop 位置同步到 FixPoint
+            // Mop.position = FixPoint.position;
+
+            // // 设置 Mop 的朝向为左手位置
+            // Vector3 direction = skullLeftHand.position - FixPoint.position;
+            // Mop.rotation = Quaternion.LookRotation(direction) * Quaternion.Euler(rotationOffset);
+
+            // // 同步右手碰撞器的位置
+            // rightHandCollider.position = skullRightHand.position;
+
+            // yield return null;
+
+            
+
+
         }
     }
 
