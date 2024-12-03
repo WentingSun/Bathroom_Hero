@@ -71,12 +71,12 @@ public class AudioManager : Singleton<AudioManager>
             Sound dreamsound = Array.Find(Sounds, sound => sound.Name == "Dream_World");
             if(selectedItem == PlayerState.playerSelectMop)
             {
-                dreamsound.Source.Play();
+                // dreamsound.Source?.Play();
                 concert.TransitionTo(0.5f);
             }
             else if (selectedItem == PlayerState.playerSelectTubelight)
             {
-                dreamsound.Source.Play();
+                // dreamsound.Source?.Play();
                 desert.TransitionTo(0.5f);
             }
             else
