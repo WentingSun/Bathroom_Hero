@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1969080736657656658}
   - component: {fileID: 2571358505041276513}
   m_Layer: 0
-  m_Name: AudioManager 1
+  m_Name: AudioManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -444,6 +444,13 @@ MonoBehaviour:
     loop: 0
   watchingState: 3
   selectedItem: 0
+  currentSound:
+    Name: 
+    clip: {fileID: 0}
+    volumn: 0
+    pitch: 0
+    Source: {fileID: 0}
+    loop: 0
   bathroom: {fileID: 941197610493249552, guid: 4a4f9c2f28b9c4500bd1ef340ffdd3f4, type: 2}
   desert: {fileID: -1851882793987460706, guid: 4a4f9c2f28b9c4500bd1ef340ffdd3f4, type: 2}
   concert: {fileID: 24500006, guid: 4a4f9c2f28b9c4500bd1ef340ffdd3f4, type: 2}
