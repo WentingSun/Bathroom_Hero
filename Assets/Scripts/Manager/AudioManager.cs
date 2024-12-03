@@ -52,6 +52,36 @@ public class AudioManager : Singleton<AudioManager>
         GameManager.OnPlayerStateChage -= audioManagerOnPlayerStateChange;
     }
 
+    private void switchAudioSource()
+    {
+        List<string> currentPlayingSoundName = new List<string>();
+        foreach(Sound sound in Sounds){
+            if(sound.Source.isPlaying == true){
+                currentPlayingSoundName.Add(sound.Name);
+                sound.Source.Stop();
+            }
+        }
+        foreach(Sound sound in FixedSoundsList){
+            if(sound.Source.isPlaying == true){
+                currentPlayingSoundName.Add(sound.Name);
+                sound.Source.Stop();
+            }
+        }
+        if(watchingState== PlayerState.playerDontWatchMirror){
+            foreach(string soundName in currentPlayingSoundName){
+                Sound sound = Array.Find(Sounds, sound => sound.Name == soundName);
+                sound.Source.Play();
+            }
+        }else if(watchingState == PlayerState.playerWatchMirror){
+            foreach(string soundName in currentPlayingSoundName){
+                Sound sound = Array.Find(FixedSoundsList, sound => sound.Name == soundName);
+                sound.Source.Play();
+            }
+        }
+
+
+    }
+
     private void audioManagerOnGameStateChange(GameState gameState)
     {
         // throw new System.NotImplementedException();
@@ -62,14 +92,17 @@ public class AudioManager : Singleton<AudioManager>
         if (playerState == PlayerState.playerWatchMirror || playerState == PlayerState.playerDontWatchMirror)
         {
             watchingState = playerState;
-        }else if(playerState == PlayerState.playerSelectTubelight || playerState == PlayerState.playerSelectMop || playerState == PlayerState.PlayerSelectNothing){
+            switchAudioSource();
+        }
+        else if (playerState == PlayerState.playerSelectTubelight || playerState == PlayerState.playerSelectMop || playerState == PlayerState.PlayerSelectNothing)
+        {
             selectedItem = playerState;
         }
 
         if (watchingState == PlayerState.playerWatchMirror)
         {
             Sound dreamsound = Array.Find(Sounds, sound => sound.Name == "Dream_World");
-            if(selectedItem == PlayerState.playerSelectMop)
+            if (selectedItem == PlayerState.playerSelectMop)
             {
                 dreamsound.Source.Play();
                 concert.TransitionTo(0.5f);
@@ -161,9 +194,12 @@ public class AudioManager : Singleton<AudioManager>
 
     public void StopSound(string soundName)
     {
-        if(currentSound.Name == soundName){
+        if (currentSound.Name == soundName)
+        {
             currentSound.Source.Stop();
-        }else{
+        }
+        else
+        {
             Sound sound = FindSound(soundName);
             sound.Source.Stop();
         }
