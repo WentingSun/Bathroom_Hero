@@ -15,11 +15,15 @@ public class AudioManager : Singleton<AudioManager>
 
     [SerializeField] private Sound currentSound;
 
+    public static AudioMixer audioMixer;
     public AudioMixerSnapshot bathroom;
 
     public AudioMixerSnapshot desert;
 
     public AudioMixerSnapshot concert;
+
+    [HideInInspector]
+    public int flag = 0;
 
     protected override void Awake()
     {
@@ -82,13 +86,39 @@ public class AudioManager : Singleton<AudioManager>
 
     }
 
+    public static IEnumerator StartFade(string exposedParam, float duration, float targetVolume)
+    {
+        float currentTime = 0;
+        float currentVol;
+        audioMixer.GetFloat(exposedParam, out currentVol);
+        currentVol = Mathf.Pow(10, currentVol / 20);
+        float targetValue = Mathf.Clamp(targetVolume, 0.0001f, 1);
+        while (currentTime < duration)
+        {
+            currentTime += Time.deltaTime;
+            float newVol = Mathf.Lerp(currentVol, targetValue, currentTime / duration);
+            audioMixer.SetFloat(exposedParam, Mathf.Log10(newVol) * 20);
+            yield return null;
+        }
+        yield break;
+    }
+
     private void audioManagerOnGameStateChange(GameState gameState)
     {
         // throw new System.NotImplementedException();
     }
 
+    private IEnumerator PlayDreamWorld()
+    {
+        Sound dreamsound = Array.Find(Sounds, sound => sound.Name == "Dream_World");
+        dreamsound.Source.Play();
+        yield return new WaitUntil(() => dreamsound.Source.time >= dreamsound.clip.length);
+    }
+
     private void audioManagerOnPlayerStateChange(PlayerState playerState /*SelectedItem selectedItem*/)
     {
+        
+
         if (playerState == PlayerState.playerWatchMirror || playerState == PlayerState.playerDontWatchMirror)
         {
             watchingState = playerState;
@@ -101,16 +131,21 @@ public class AudioManager : Singleton<AudioManager>
 
         if (watchingState == PlayerState.playerWatchMirror)
         {
-            Sound dreamsound = Array.Find(Sounds, sound => sound.Name == "Dream_World");
+            
             if (selectedItem == PlayerState.playerSelectMop)
             {
-                dreamsound.Source.Play();
-                concert.TransitionTo(0.5f);
+                flag = 1;
+                StartFade("bathroom_bg_volume", 3.0f, -80);
+                StartCoroutine(PlayDreamWorld());
+                concert.TransitionTo(2.0f);
             }
             else if (selectedItem == PlayerState.playerSelectTubelight)
             {
-                dreamsound.Source.Play();
-                desert.TransitionTo(0.5f);
+                flag = 1;
+                StartFade("bathroom_bg_volume", 3.0f, -80);
+                StartCoroutine(PlayDreamWorld());
+                StartFade("desert_bg_volume", 3.0f, 10);
+                desert.TransitionTo(3.0f);
             }
             else
             {
@@ -119,7 +154,40 @@ public class AudioManager : Singleton<AudioManager>
         }
         else
         {
-            bathroom.TransitionTo(0.5f);
+            if (selectedItem == PlayerState.playerSelectMop)
+            {
+                if(flag == 1)
+                {
+                    StartCoroutine(PlayDreamWorld());
+                    StartFade("bathroom_bg_volume", 3.0f, -14);
+                    bathroom.TransitionTo(3.0f);
+                    flag = 0;
+                }
+                else
+                {
+                    bathroom.TransitionTo(0.5f);
+                }
+            }
+            else if(selectedItem == PlayerState.playerSelectTubelight)
+            {
+                if(flag == 1)
+                {
+                    StartFade("desert_bg_volume", 3.0f, -80);
+                    StartCoroutine(PlayDreamWorld());
+                    StartFade("bathroom_bg_volume", 3.0f, -14);
+                    bathroom.TransitionTo(3.0f);
+                    flag = 0;
+                }
+                else
+                {
+                    bathroom.TransitionTo(0.5f);
+                }
+            }
+            else
+            {
+                bathroom.TransitionTo(0.5f);
+            }
+
         }
 
     }
@@ -200,8 +268,8 @@ public class AudioManager : Singleton<AudioManager>
         }
         else
         {
-            Sound sound = FindSound(soundName);
-            sound.Source.Stop();
+            //Sound sound = FindSound(soundName);
+            //sound.Source.Stop();
         }
     }
 

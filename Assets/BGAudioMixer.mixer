@@ -94,7 +94,7 @@ AudioMixerSnapshotController:
     8cbbeec49d7f14aa3bbed68e4ec07c85: 985
     a1d1ce358c2c7479e8b50d7b2edae998: 0
     14c63675fc66749afaab00030421b929: 0.002
-    575d5886366d043bfb1a49b5b89b3ad1: 5.02454
+    575d5886366d043bfb1a49b5b89b3ad1: 10.437403
     846f1496ff249451c96f9df0058f55ff: 0
     8f955f17d5e644c26b68d37bcc34ff04: -8248
     6e72a4d89069c4df582e883b26fa10ca: 250
@@ -146,7 +146,11 @@ AudioMixerController:
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
-  m_ExposedParameters: []
+  m_ExposedParameters:
+  - guid: 1e64a5c29edaa435882c05f472cfbafb
+    name: bathroom_bg_volume
+  - guid: 575d5886366d043bfb1a49b5b89b3ad1
+    name: desert_bg_volume
   m_AudioMixerGroupViews:
   - guids:
     - 3945ed5d9d02749d0b13de84d87861d6
@@ -235,7 +239,7 @@ AudioMixerSnapshotController:
     815d82a186e4544baba3b40f77977643: -370
     d9688d425f0f74e3998b1192e517beeb: -1000
     14b0bd62abd354df1afbf8577edf9b46: -80
-    1e64a5c29edaa435882c05f472cfbafb: 5.02454
+    1e64a5c29edaa435882c05f472cfbafb: -13.782469
     5b11ba232fe14443bbe905187181482d: 0.54
     e5ce7d830f10648c69876ab6b4dfafae: 60
     34cc1f4417de04550923488d3f1f202a: 0
