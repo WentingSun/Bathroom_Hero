@@ -1,0 +1,456 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8783284539834921399
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 513944470174581484}
+  - component: {fileID: 1279082988719209333}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &513944470174581484
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8783284539834921399}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1279082988719209333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8783284539834921399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b8a122c3527a2441a74f5d741de9321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sounds:
+  - Name: ModeA00
+    clip: {fileID: 8300000, guid: a7d27efcfbc2b1d49a3b5381cee3fab2, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeA01
+    clip: {fileID: 8300000, guid: 3db23080342262447a7bd63ab198f65a, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeA02
+    clip: {fileID: 8300000, guid: ffa94c319c756e2478ed24c28966246c, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeA03
+    clip: {fileID: 8300000, guid: 39997683dd605c64e98814725ad22ff0, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeA04
+    clip: {fileID: 8300000, guid: c138ced08430ec245acf3fe82455dd6a, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeA05
+    clip: {fileID: 8300000, guid: 750843df2a326c54eb7b4212c3353ec5, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeA06
+    clip: {fileID: 8300000, guid: 86b2be49b9e25db4bac62d15989ffec6, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeA07
+    clip: {fileID: 8300000, guid: ed4a14d71573e874cabd3468620432b1, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeA08
+    clip: {fileID: 8300000, guid: feb4506101964bc4198938ae03231b8d, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeA09
+    clip: {fileID: 8300000, guid: 473998fb03ee12242bef884263f52835, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeA10
+    clip: {fileID: 8300000, guid: 675ec48e521b6c340ba959eaaee49804, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeB00
+    clip: {fileID: 8300000, guid: ded004abd7d225444827d2730aa152d4, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeB01
+    clip: {fileID: 8300000, guid: 810c5ff65a46b5c45bd3046378a5c4e9, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeB02
+    clip: {fileID: 8300000, guid: 9ebc68e2c7cbda34d9892f4d86e91411, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeB03
+    clip: {fileID: 8300000, guid: 896a7b5111fef0848acaffeacd8eab3b, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeB04
+    clip: {fileID: 8300000, guid: ccca0e2241fff8e469a38b00ba72fe0a, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeB05
+    clip: {fileID: 8300000, guid: f10452bb0f5a98b4399dbddfd7fcc613, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeB06
+    clip: {fileID: 8300000, guid: e03352a402b3fb04c81525231b0528f1, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeB07
+    clip: {fileID: 8300000, guid: 50e24fcd6fbb99540a6f85b156fd0f8f, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeB08
+    clip: {fileID: 8300000, guid: 9e17e69235115d74a91e251369b953b5, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeB09
+    clip: {fileID: 8300000, guid: ed34d74b7347dfa49916cf51bec4679c, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeB10
+    clip: {fileID: 8300000, guid: 23bb687d2699c594b8ababa82c7c5bb6, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeC00
+    clip: {fileID: 8300000, guid: d4acd6343361f4b4ca8ec183a8822e87, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeC01
+    clip: {fileID: 8300000, guid: cd45da130639f17419dd0003e229502b, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeC02
+    clip: {fileID: 8300000, guid: 529a3af5e3e4b0f4cb36afe29a4d1931, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeC03
+    clip: {fileID: 8300000, guid: 23421416329123544ae88a775a6d84ef, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeC04
+    clip: {fileID: 8300000, guid: 34d9bf1c4e028014a97583a37329183d, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeC05
+    clip: {fileID: 8300000, guid: fe26e218169c114459de37c450fff6d0, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeC06
+    clip: {fileID: 8300000, guid: ca5427cd468b217408c7c3b8c90543d6, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeC07
+    clip: {fileID: 8300000, guid: fb40b7e3856025a4ebe4fc1961ece3d3, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeC08
+    clip: {fileID: 8300000, guid: bf99407082afede47b24e3a204bd4489, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeC09
+    clip: {fileID: 8300000, guid: 81a7632613e21204fb488db45e089bfc, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeC10
+    clip: {fileID: 8300000, guid: e5908b37b544bfc4988e58f7da393837, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  FixedSoundsList:
+  - Name: ModeA00
+    clip: {fileID: 8300000, guid: 59a71d5c5eb3c7a488d996ae9dbeaf0c, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeA01
+    clip: {fileID: 8300000, guid: 52dbaedd448f67643bc6e409a6895e3d, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeA02
+    clip: {fileID: 8300000, guid: 76a97d4daa3fce946b7c6d6d44dd439a, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeA03
+    clip: {fileID: 8300000, guid: 4d2e6fc5e20385a41ad0d50a71fb01d8, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeA04
+    clip: {fileID: 8300000, guid: 25d686f064e0a7f4092b540f6d599e39, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeA05
+    clip: {fileID: 8300000, guid: 0e15038112a964f4fa7cbca75becf68f, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeA06
+    clip: {fileID: 8300000, guid: 3ccafd6f1a390634cae650214e3dfeaa, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeA07
+    clip: {fileID: 8300000, guid: 978403815e694b345af46ed48f360de1, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeA08
+    clip: {fileID: 8300000, guid: e5d0dd962a166e346a62af70deb50a7b, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeA09
+    clip: {fileID: 8300000, guid: c1a78d3455981c54c98440b5226d495d, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeA10
+    clip: {fileID: 8300000, guid: 3d5ca9a950d699d4e8e10175844fc472, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeB00
+    clip: {fileID: 8300000, guid: 1ba49746196b8954781dcc43e5ce7fe8, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeB01
+    clip: {fileID: 8300000, guid: b4847c965b1f69341bdc4e600db52b04, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeB02
+    clip: {fileID: 8300000, guid: a8042c2111899fe4c9127a10aae054a4, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeB03
+    clip: {fileID: 8300000, guid: a832d1c6e7a2d1a4eb8f607ecfe9f15a, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeB04
+    clip: {fileID: 8300000, guid: c322049cb4159a34d8211292fa4f4e97, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeB05
+    clip: {fileID: 8300000, guid: 9b885a69d96eb534f931074257f3d14d, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeB06
+    clip: {fileID: 8300000, guid: 9c29779e58b03d7429a29e3c4b95a460, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeB07
+    clip: {fileID: 8300000, guid: 0c83d8f523dd8c645844d6f1d04cb702, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeB08
+    clip: {fileID: 8300000, guid: b6d33f57b9313354fbbc3c6fd29adb93, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeB09
+    clip: {fileID: 8300000, guid: d20dbbafa6b4ce9448d63e33cfaf6a8e, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeB10
+    clip: {fileID: 8300000, guid: e6118e968bed9504096439fc88b97c27, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeC00
+    clip: {fileID: 8300000, guid: 47dfbfef86b948f40b219450a6dfbe40, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeC01
+    clip: {fileID: 8300000, guid: 73448f33fbc52ad409fea752fbbcab9a, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeC02
+    clip: {fileID: 8300000, guid: 022174132adda904a873cd0edcd203fb, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeC03
+    clip: {fileID: 8300000, guid: 83faa572522e4f4479e03f8eabc18420, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeC04
+    clip: {fileID: 8300000, guid: 4405950da3ee46546a93b007dd2b071c, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeC05
+    clip: {fileID: 8300000, guid: 4da6bc81fd7213f4f9f0b0a792c66a7d, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeC06
+    clip: {fileID: 8300000, guid: 239c869da07901e4894e88b4b92df3c6, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeC07
+    clip: {fileID: 8300000, guid: 53b7d63279add83468ddbd0cd0288e3e, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeC08
+    clip: {fileID: 8300000, guid: c1fcbc38c50366244a396e19cb4c5874, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeC09
+    clip: {fileID: 8300000, guid: 3f746382c34123641bc63efc031a22ff, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  - Name: ModeC10
+    clip: {fileID: 8300000, guid: 948adc16e1a737d4c9e6816b64654a47, type: 3}
+    volumn: 0.689
+    pitch: 1
+    Source: {fileID: 0}
+    loop: 0
+  watchingState: 3
+  selectedItem: 0
+  currentSound:
+    Name: 
+    clip: {fileID: 0}
+    volumn: 0
+    pitch: 0
+    Source: {fileID: 0}
+    loop: 0
+  bathroom: {fileID: 941197610493249552, guid: 4a4f9c2f28b9c4500bd1ef340ffdd3f4, type: 2}
+  desert: {fileID: -1851882793987460706, guid: 4a4f9c2f28b9c4500bd1ef340ffdd3f4, type: 2}
+  concert: {fileID: 24500006, guid: 4a4f9c2f28b9c4500bd1ef340ffdd3f4, type: 2}

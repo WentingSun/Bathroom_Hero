@@ -238,7 +238,7 @@ GameObject:
   m_Component:
   - component: {fileID: 444014107}
   m_Layer: 0
-  m_Name: LeftHand
+  m_Name: '[Left Controller] Model Parent'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -260,6 +260,63 @@ Transform:
   - {fileID: 928080589}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &599910495
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3511600732275023325, guid: 30f8d469ece2ab74c8c67294c3eb368c, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6695916401442271957, guid: 30f8d469ece2ab74c8c67294c3eb368c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6695916401442271957, guid: 30f8d469ece2ab74c8c67294c3eb368c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6695916401442271957, guid: 30f8d469ece2ab74c8c67294c3eb368c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6695916401442271957, guid: 30f8d469ece2ab74c8c67294c3eb368c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6695916401442271957, guid: 30f8d469ece2ab74c8c67294c3eb368c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6695916401442271957, guid: 30f8d469ece2ab74c8c67294c3eb368c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6695916401442271957, guid: 30f8d469ece2ab74c8c67294c3eb368c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6695916401442271957, guid: 30f8d469ece2ab74c8c67294c3eb368c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6695916401442271957, guid: 30f8d469ece2ab74c8c67294c3eb368c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6695916401442271957, guid: 30f8d469ece2ab74c8c67294c3eb368c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 30f8d469ece2ab74c8c67294c3eb368c, type: 3}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,250 +640,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1078714718
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1078714719}
-  - component: {fileID: 1078714720}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1078714719
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1078714718}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1078714720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1078714718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b8a122c3527a2441a74f5d741de9321, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Sounds:
-  - Name: ModeA00
-    clip: {fileID: 8300000, guid: a7d27efcfbc2b1d49a3b5381cee3fab2, type: 3}
-    volumn: 0.689
-    pitch: 1
-    Source: {fileID: 0}
-    loop: 0
-  - Name: ModeA01
-    clip: {fileID: 8300000, guid: 3db23080342262447a7bd63ab198f65a, type: 3}
-    volumn: 0.689
-    pitch: 1
-    Source: {fileID: 0}
-    loop: 0
-  - Name: ModeA02
-    clip: {fileID: 8300000, guid: ffa94c319c756e2478ed24c28966246c, type: 3}
-    volumn: 0.689
-    pitch: 1
-    Source: {fileID: 0}
-    loop: 0
-  - Name: ModeA03
-    clip: {fileID: 8300000, guid: 39997683dd605c64e98814725ad22ff0, type: 3}
-    volumn: 0.689
-    pitch: 1
-    Source: {fileID: 0}
-    loop: 0
-  - Name: ModeA04
-    clip: {fileID: 8300000, guid: c138ced08430ec245acf3fe82455dd6a, type: 3}
-    volumn: 0.689
-    pitch: 1
-    Source: {fileID: 0}
-    loop: 0
-  - Name: ModeA05
-    clip: {fileID: 8300000, guid: 750843df2a326c54eb7b4212c3353ec5, type: 3}
-    volumn: 0.689
-    pitch: 1
-    Source: {fileID: 0}
-    loop: 0
-  - Name: ModeA06
-    clip: {fileID: 8300000, guid: 86b2be49b9e25db4bac62d15989ffec6, type: 3}
-    volumn: 0.689
-    pitch: 1
-    Source: {fileID: 0}
-    loop: 0
-  - Name: ModeA07
-    clip: {fileID: 8300000, guid: ed4a14d71573e874cabd3468620432b1, type: 3}
-    volumn: 0.689
-    pitch: 1
-    Source: {fileID: 0}
-    loop: 0
-  - Name: ModeA08
-    clip: {fileID: 8300000, guid: feb4506101964bc4198938ae03231b8d, type: 3}
-    volumn: 0.689
-    pitch: 1
-    Source: {fileID: 0}
-    loop: 0
-  - Name: ModeA09
-    clip: {fileID: 8300000, guid: 473998fb03ee12242bef884263f52835, type: 3}
-    volumn: 0.689
-    pitch: 1
-    Source: {fileID: 0}
-    loop: 0
-  - Name: ModeA10
-    clip: {fileID: 8300000, guid: 675ec48e521b6c340ba959eaaee49804, type: 3}
-    volumn: 0.689
-    pitch: 1
-    Source: {fileID: 0}
-    loop: 0
-  - Name: ModeB00
-    clip: {fileID: 8300000, guid: ded004abd7d225444827d2730aa152d4, type: 3}
-    volumn: 0.689
-    pitch: 1
-    Source: {fileID: 0}
-    loop: 0
-  - Name: ModeB01
-    clip: {fileID: 8300000, guid: 810c5ff65a46b5c45bd3046378a5c4e9, type: 3}
-    volumn: 0.689
-    pitch: 1
-    Source: {fileID: 0}
-    loop: 0
-  - Name: ModeB02
-    clip: {fileID: 8300000, guid: 9ebc68e2c7cbda34d9892f4d86e91411, type: 3}
-    volumn: 0.689
-    pitch: 1
-    Source: {fileID: 0}
-    loop: 0
-  - Name: ModeB03
-    clip: {fileID: 8300000, guid: 896a7b5111fef0848acaffeacd8eab3b, type: 3}
-    volumn: 0.689
-    pitch: 1
-    Source: {fileID: 0}
-    loop: 0
-  - Name: ModeB04
-    clip: {fileID: 8300000, guid: ccca0e2241fff8e469a38b00ba72fe0a, type: 3}
-    volumn: 0.689
-    pitch: 1
-    Source: {fileID: 0}
-    loop: 0
-  - Name: ModeB05
-    clip: {fileID: 8300000, guid: f10452bb0f5a98b4399dbddfd7fcc613, type: 3}
-    volumn: 0.689
-    pitch: 1
-    Source: {fileID: 0}
-    loop: 0
-  - Name: ModeB06
-    clip: {fileID: 8300000, guid: e03352a402b3fb04c81525231b0528f1, type: 3}
-    volumn: 0.689
-    pitch: 1
-    Source: {fileID: 0}
-    loop: 0
-  - Name: ModeB07
-    clip: {fileID: 8300000, guid: 50e24fcd6fbb99540a6f85b156fd0f8f, type: 3}
-    volumn: 0.689
-    pitch: 1
-    Source: {fileID: 0}
-    loop: 0
-  - Name: ModeB08
-    clip: {fileID: 8300000, guid: 9e17e69235115d74a91e251369b953b5, type: 3}
-    volumn: 0.689
-    pitch: 1
-    Source: {fileID: 0}
-    loop: 0
-  - Name: ModeB09
-    clip: {fileID: 8300000, guid: ed34d74b7347dfa49916cf51bec4679c, type: 3}
-    volumn: 0.689
-    pitch: 1
-    Source: {fileID: 0}
-    loop: 0
-  - Name: ModeB10
-    clip: {fileID: 8300000, guid: 23bb687d2699c594b8ababa82c7c5bb6, type: 3}
-    volumn: 0.689
-    pitch: 1
-    Source: {fileID: 0}
-    loop: 0
-  - Name: ModeC00
-    clip: {fileID: 8300000, guid: d4acd6343361f4b4ca8ec183a8822e87, type: 3}
-    volumn: 0.689
-    pitch: 1
-    Source: {fileID: 0}
-    loop: 0
-  - Name: ModeC01
-    clip: {fileID: 8300000, guid: cd45da130639f17419dd0003e229502b, type: 3}
-    volumn: 0.689
-    pitch: 1
-    Source: {fileID: 0}
-    loop: 0
-  - Name: ModeC02
-    clip: {fileID: 8300000, guid: 529a3af5e3e4b0f4cb36afe29a4d1931, type: 3}
-    volumn: 0.689
-    pitch: 1
-    Source: {fileID: 0}
-    loop: 0
-  - Name: ModeC03
-    clip: {fileID: 8300000, guid: 23421416329123544ae88a775a6d84ef, type: 3}
-    volumn: 0.689
-    pitch: 1
-    Source: {fileID: 0}
-    loop: 0
-  - Name: ModeC04
-    clip: {fileID: 8300000, guid: 34d9bf1c4e028014a97583a37329183d, type: 3}
-    volumn: 0.689
-    pitch: 1
-    Source: {fileID: 0}
-    loop: 0
-  - Name: ModeC05
-    clip: {fileID: 8300000, guid: fe26e218169c114459de37c450fff6d0, type: 3}
-    volumn: 0.689
-    pitch: 1
-    Source: {fileID: 0}
-    loop: 0
-  - Name: ModeC06
-    clip: {fileID: 8300000, guid: ca5427cd468b217408c7c3b8c90543d6, type: 3}
-    volumn: 0.689
-    pitch: 1
-    Source: {fileID: 0}
-    loop: 0
-  - Name: ModeC07
-    clip: {fileID: 8300000, guid: fb40b7e3856025a4ebe4fc1961ece3d3, type: 3}
-    volumn: 0.689
-    pitch: 1
-    Source: {fileID: 0}
-    loop: 0
-  - Name: ModeC08
-    clip: {fileID: 8300000, guid: bf99407082afede47b24e3a204bd4489, type: 3}
-    volumn: 0.689
-    pitch: 1
-    Source: {fileID: 0}
-    loop: 0
-  - Name: ModeC09
-    clip: {fileID: 8300000, guid: 81a7632613e21204fb488db45e089bfc, type: 3}
-    volumn: 0.689
-    pitch: 1
-    Source: {fileID: 0}
-    loop: 0
-  - Name: ModeC10
-    clip: {fileID: 8300000, guid: e5908b37b544bfc4988e58f7da393837, type: 3}
-    volumn: 0.689
-    pitch: 1
-    Source: {fileID: 0}
-    loop: 0
-  FixedSoundsList: []
 --- !u!1001 &1314837465
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -948,6 +761,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff45e77a66a1bc408255bd9461a22ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentGameState: 0
+  currentPlayerState: 0
+  currentSelectedItem: 0
 --- !u!1 &1606282281
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,7 +821,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1934626309}
   m_Layer: 0
-  m_Name: RightHand
+  m_Name: '[Right Controller] Model Parent'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1116,8 +932,8 @@ SceneRoots:
   - {fileID: 705507995}
   - {fileID: 1606282283}
   - {fileID: 1405446478}
-  - {fileID: 1078714719}
   - {fileID: 1934626309}
   - {fileID: 444014107}
   - {fileID: 779962126}
   - {fileID: 1314837465}
+  - {fileID: 599910495}
